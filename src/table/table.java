@@ -6,6 +6,7 @@ public class table {
 		// TODO Auto-generated method stub
 		System.out.println("hola mundo");
 		System.out.println("Heyyy");
+		System.out.println("enhglshg.");
 	}
 
 }
