@@ -75,6 +75,9 @@ public class TableView extends JFrame {
 		lblNewLabel.setDisplayedMnemonic(KeyEvent.VK_ENTER);
 		panel.add(lblNewLabel);
 		
+		
+		
+		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(22, 55, 985, 663);
 		panel_1.setForeground(new Color(165, 42, 42));
@@ -83,332 +86,330 @@ public class TableView extends JFrame {
 		contentPane.add(panel_1);
 		panel_1.setLayout(new GridLayout(8, 8, 3, 3));
 		
-		JButton btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		btnNewButton_2.setBorderPainted(false);
-		btnNewButton_2.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(255, 255, 255), new Color(255, 255, 255), new Color(255, 255, 255), new Color(255, 255, 255)));
-		btnNewButton_2.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_2);
+		JButton c00 = new JButton("c00");
+		c00.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		c00.setBorderPainted(false);
+		c00.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(255, 255, 255), new Color(255, 255, 255), new Color(255, 255, 255), new Color(255, 255, 255)));
+		c00.setBackground(new Color(160, 82, 45));
+		panel_1.add(c00);
 		
-		JButton btnNewButton_4 = new JButton("New button");
-		btnNewButton_4.setBorderPainted(false);
-		btnNewButton_4.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_4);
+		JButton c01 = new JButton("c01");
+		c01.setBorderPainted(false);
+		c01.setBackground(Color.WHITE);
+		panel_1.add(c01);
 		
-		JButton btnNewButton_6 = new JButton("New button");
-		btnNewButton_6.addActionListener(new ActionListener() {
+		JButton c02 = new JButton("c02");
+		c02.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_6.setBorderPainted(false);
-		btnNewButton_6.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_6);
+		c02.setBorderPainted(false);
+		c02.setBackground(new Color(160, 82, 45));
+		panel_1.add(c02);
 		
-		JButton btnNewButton_5 = new JButton("New button");
-		btnNewButton_5.setBorderPainted(false);
-		btnNewButton_5.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_5);
+		JButton c03 = new JButton("c03");
+		c03.setBorderPainted(false);
+		c03.setBackground(Color.WHITE);
+		panel_1.add(c03);
 		
-		JButton btnNewButton_7 = new JButton("New button");
-		btnNewButton_7.setBorderPainted(false);
-		btnNewButton_7.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_7);
+		JButton c04 = new JButton("c04");
+		c04.setBorderPainted(false);
+		c04.setBackground(new Color(160, 82, 45));
+		panel_1.add(c04);
 		
-		JButton btnNewButton_8 = new JButton("New button");
-		btnNewButton_8.setBorderPainted(false);
-		btnNewButton_8.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_8);
+		JButton c05 = new JButton("c05");
+		c05.setBorderPainted(false);
+		c05.setBackground(Color.WHITE);
+		panel_1.add(c05);
 		
-		JButton btnNewButton_58 = new JButton("New button");
-		btnNewButton_58.setBorderPainted(false);
-		btnNewButton_58.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_58);
+		JButton c06 = new JButton("c06");
+		c06.setBorderPainted(false);
+		c06.setBackground(new Color(160, 82, 45));
+		panel_1.add(c06);
 		
-		JButton btnNewButton_9 = new JButton("New button");
-		btnNewButton_9.setBorderPainted(false);
-		btnNewButton_9.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_9);
+		JButton c07 = new JButton("c07");
+		c07.setBorderPainted(false);
+		c07.setBackground(Color.WHITE);
+		panel_1.add(c07);
 		
-		JButton btnNewButton_3 = new JButton("New button");
-		btnNewButton_3.setBorderPainted(false);
-		btnNewButton_3.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_3);
+		JButton c08 = new JButton("c08");
+		c08.setBorderPainted(false);
+		c08.setBackground(Color.WHITE);
+		panel_1.add(c08);
 		
-		JButton btnNewButton_10 = new JButton("New button");
-		btnNewButton_10.setBorderPainted(false);
-		btnNewButton_10.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_10);
+		JButton c09 = new JButton("c09");
+		c09.setBorderPainted(false);
+		c09.setBackground(new Color(160, 82, 45));
+		panel_1.add(c09);
 		
-		JButton btnNewButton_11 = new JButton("New button");
-		btnNewButton_11.setBorderPainted(false);
-		btnNewButton_11.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_11);
+		JButton c10 = new JButton("c10");
+		c10.setBorderPainted(false);
+		c10.setBackground(Color.WHITE);
+		panel_1.add(c10);
 		
-		JButton btnNewButton_12 = new JButton("New button");
-		btnNewButton_12.setBorderPainted(false);
-		btnNewButton_12.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_12);
+		JButton c11 = new JButton("c11");
+		c11.setBorderPainted(false);
+		c11.setBackground(new Color(160, 82, 45));
+		panel_1.add(c11);
 		
-		JButton btnNewButton_13 = new JButton("New button");
-		btnNewButton_13.setBorderPainted(false);
-		btnNewButton_13.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_13);
+		JButton c12 = new JButton("c12");
+		c12.setBorderPainted(false);
+		c12.setBackground(Color.WHITE);
+		panel_1.add(c12);
 		
-		JButton btnNewButton_14 = new JButton("New button");
-		btnNewButton_14.setBorderPainted(false);
-		btnNewButton_14.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_14);
+		JButton c13 = new JButton("c13");
+		c13.setBorderPainted(false);
+		c13.setBackground(new Color(160, 82, 45));
+		panel_1.add(c13);
 		
-		JButton btnNewButton_16 = new JButton("New button");
-		btnNewButton_16.setBorderPainted(false);
-		btnNewButton_16.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_16);
+		JButton c14 = new JButton("c14");
+		c14.setBorderPainted(false);
+		c14.setBackground(Color.WHITE);
+		panel_1.add(c14);
 		
-		JButton btnNewButton_15 = new JButton("New button");
-		btnNewButton_15.setBorderPainted(false);
-		btnNewButton_15.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_15);
+		JButton c15 = new JButton("c15");
+		c15.setBorderPainted(false);
+		c15.setBackground(new Color(160, 82, 45));
+		panel_1.add(c15);
 		
-		JButton btnNewButton_18 = new JButton("New button");
-		btnNewButton_18.setBorderPainted(false);
-		btnNewButton_18.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_18);
+		JButton c16 = new JButton("c16");
+		c16.setBorderPainted(false);
+		c16.setBackground(new Color(160, 82, 45));
+		panel_1.add(c16);
 		
-		JButton btnNewButton_17 = new JButton("New button");
-		btnNewButton_17.setBorderPainted(false);
-		btnNewButton_17.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_17);
+		JButton c17 = new JButton("c17");
+		c17.setBorderPainted(false);
+		c17.setBackground(Color.WHITE);
+		panel_1.add(c17);
 		
-		JButton btnNewButton_20 = new JButton("New button");
-		btnNewButton_20.setBorderPainted(false);
-		btnNewButton_20.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_20);
+		JButton c18 = new JButton("c18");
+		c18.setBorderPainted(false);
+		c18.setBackground(new Color(160, 82, 45));
+		panel_1.add(c18);
 		
-		JButton btnNewButton_19 = new JButton("New button");
-		btnNewButton_19.setBorderPainted(false);
-		btnNewButton_19.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_19);
+		JButton c19 = new JButton("c19");
+		c19.setBorderPainted(false);
+		c19.setBackground(Color.WHITE);
+		panel_1.add(c19);
 		
-		JButton btnNewButton_21 = new JButton("New button");
-		btnNewButton_21.setBorderPainted(false);
-		btnNewButton_21.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_21);
+		JButton c20 = new JButton("c20");
+		c20.setBorderPainted(false);
+		c20.setBackground(new Color(160, 82, 45));
+		panel_1.add(c20);
 		
-		JButton btnNewButton_23 = new JButton("New button");
-		btnNewButton_23.setBorderPainted(false);
-		btnNewButton_23.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_23);
+		JButton c21 = new JButton("c21");
+		c21.setBorderPainted(false);
+		c21.setBackground(Color.WHITE);
+		panel_1.add(c21);
 		
-		JButton btnNewButton_22 = new JButton("New button");
-		btnNewButton_22.setBorderPainted(false);
-		btnNewButton_22.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_22);
+		JButton c22 = new JButton("c22");
+		c22.setBorderPainted(false);
+		c22.setBackground(new Color(160, 82, 45));
+		panel_1.add(c22);
 		
-		JButton btnNewButton_24 = new JButton("New button");
-		btnNewButton_24.setBorderPainted(false);
-		btnNewButton_24.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_24);
+		JButton c23 = new JButton("c23");
+		c23.setBorderPainted(false);
+		c23.setBackground(Color.WHITE);
+		panel_1.add(c23);
 		
-		JButton btnNewButton_26 = new JButton("New button");
-		btnNewButton_26.setBorderPainted(false);
-		btnNewButton_26.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_26);
+		JButton c24 = new JButton("c24");
+		c24.setBorderPainted(false);
+		c24.setBackground(Color.WHITE);
+		panel_1.add(c24);
 		
-		JButton btnNewButton_25 = new JButton("New button");
-		btnNewButton_25.setBorderPainted(false);
-		btnNewButton_25.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_25);
+		JButton c25 = new JButton("c25");
+		c25.setBorderPainted(false);
+		c25.setBackground(new Color(160, 82, 45));
+		panel_1.add(c25);
 		
-		JButton btnNewButton_27 = new JButton("New button");
-		btnNewButton_27.setBorderPainted(false);
-		btnNewButton_27.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_27);
+		JButton c26 = new JButton("c26");
+		c26.setBorderPainted(false);
+		c26.setBackground(Color.WHITE);
+		panel_1.add(c26);
 		
-		JButton btnNewButton_28 = new JButton("New button");
-		btnNewButton_28.setBorderPainted(false);
-		btnNewButton_28.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_28);
+		JButton c27 = new JButton("c27");
+		c27.setBorderPainted(false);
+		c27.setBackground(new Color(160, 82, 45));
+		panel_1.add(c27);
 		
-		JButton btnNewButton_29 = new JButton("New button");
-		btnNewButton_29.setBorderPainted(false);
-		btnNewButton_29.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_29);
+		JButton c28 = new JButton("c28");
+		c28.setBorderPainted(false);
+		c28.setBackground(Color.WHITE);
+		panel_1.add(c28);
 		
-		JButton btnNewButton_30 = new JButton("New button");
-		btnNewButton_30.setBorderPainted(false);
-		btnNewButton_30.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_30);
+		JButton c29 = new JButton("c29");
+		c29.setBorderPainted(false);
+		c29.setBackground(new Color(160, 82, 45));
+		panel_1.add(c29);
 		
-		JButton btnNewButton_31 = new JButton("New button");
-		btnNewButton_31.setBorderPainted(false);
-		btnNewButton_31.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_31);
+		JButton c30 = new JButton("c30");
+		c30.setBorderPainted(false);
+		c30.setBackground(Color.WHITE);
+		panel_1.add(c30);
 		
-		JButton btnNewButton_32 = new JButton("New button");
-		btnNewButton_32.setBorderPainted(false);
-		btnNewButton_32.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_32);
+		JButton c31 = new JButton("c31");
+		c31.setBorderPainted(false);
+		c31.setBackground(new Color(160, 82, 45));
+		panel_1.add(c31);
 		
-		JButton btnNewButton_38 = new JButton("New button");
-		btnNewButton_38.setBorderPainted(false);
-		btnNewButton_38.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_38);
+		JButton c32 = new JButton("c32");
+		c32.setBorderPainted(false);
+		c32.setBackground(new Color(160, 82, 45));
+		panel_1.add(c32);
 		
-		JButton btnNewButton_33 = new JButton("New button");
-		btnNewButton_33.setBorderPainted(false);
-		btnNewButton_33.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_33);
+		JButton c33 = new JButton("c33");
+		c33.setBorderPainted(false);
+		c33.setBackground(Color.WHITE);
+		panel_1.add(c33);
 		
-		JButton btnNewButton_34 = new JButton("New button");
-		btnNewButton_34.setBorderPainted(false);
-		btnNewButton_34.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_34);
+		JButton c34 = new JButton("c34");
+		c34.setBorderPainted(false);
+		c34.setBackground(new Color(160, 82, 45));
+		panel_1.add(c34);
 		
-		JButton btnNewButton_35 = new JButton("New button");
-		btnNewButton_35.setBorderPainted(false);
-		btnNewButton_35.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_35);
+		JButton c35 = new JButton("c35");
+		c35.setBorderPainted(false);
+		c35.setBackground(Color.WHITE);
+		panel_1.add(c35);
 		
-		JButton btnNewButton_37 = new JButton("New button");
-		btnNewButton_37.setBorderPainted(false);
-		btnNewButton_37.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_37);
+		JButton c36 = new JButton("c36");
+		c36.setBorderPainted(false);
+		c36.setBackground(new Color(160, 82, 45));
+		panel_1.add(c36);
 		
-		JButton btnNewButton_36 = new JButton("New button");
-		btnNewButton_36.setBorderPainted(false);
-		btnNewButton_36.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_36);
+		JButton c37 = new JButton("c37");
+		c37.setBorderPainted(false);
+		c37.setBackground(Color.WHITE);
+		panel_1.add(c37);
 		
-		JButton btnNewButton_39 = new JButton("New button");
-		btnNewButton_39.setBorderPainted(false);
-		btnNewButton_39.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_39);
+		JButton c38 = new JButton("c38");
+		c38.setBorderPainted(false);
+		c38.setBackground(new Color(160, 82, 45));
+		panel_1.add(c38);
 		
-		JButton btnNewButton_43 = new JButton("New button");
-		btnNewButton_43.setBorderPainted(false);
-		btnNewButton_43.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_43);
+		JButton c39 = new JButton("c39");
+		c39.setBorderPainted(false);
+		c39.setBackground(Color.WHITE);
+		panel_1.add(c39);
 		
-		JButton btnNewButton_40 = new JButton("New button");
-		btnNewButton_40.setBorderPainted(false);
-		btnNewButton_40.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_40);
+		JButton c40 = new JButton("c40");
+		c40.setBorderPainted(false);
+		c40.setBackground(Color.WHITE);
+		panel_1.add(c40);
 		
-		JButton btnNewButton_44 = new JButton("New button");
-		btnNewButton_44.setBorderPainted(false);
-		btnNewButton_44.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_44);
+		JButton c41 = new JButton("c41");
+		c41.setBorderPainted(false);
+		c41.setBackground(new Color(160, 82, 45));
+		panel_1.add(c41);
 		
-		JButton btnNewButton_42 = new JButton("New button");
-		btnNewButton_42.setBorderPainted(false);
-		btnNewButton_42.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_42);
+		JButton c42 = new JButton("c42");
+		c42.setBorderPainted(false);
+		c42.setBackground(Color.WHITE);
+		panel_1.add(c42);
 		
-		JButton btnNewButton_41 = new JButton("New button");
-		btnNewButton_41.setBorderPainted(false);
-		btnNewButton_41.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_41);
+		JButton c43 = new JButton("c43");
+		c43.setBorderPainted(false);
+		c43.setBackground(new Color(160, 82, 45));
+		panel_1.add(c43);
 		
-		JButton btnNewButton_51 = new JButton("New button");
-		btnNewButton_51.setBorderPainted(false);
-		btnNewButton_51.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_51);
+		JButton c44 = new JButton("c44");
+		c44.setBorderPainted(false);
+		c44.setBackground(Color.WHITE);
+		panel_1.add(c44);
 		
-		JButton btnNewButton_45 = new JButton("New button");
-		btnNewButton_45.setBorderPainted(false);
-		btnNewButton_45.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_45);
+		JButton c45 = new JButton("c45");
+		c45.setBorderPainted(false);
+		c45.setBackground(new Color(160, 82, 45));
+		panel_1.add(c45);
 		
-		JButton btnNewButton_46 = new JButton("New button");
-		btnNewButton_46.setBorderPainted(false);
-		btnNewButton_46.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_46);
+		JButton c46 = new JButton("c46");
+		c46.setBorderPainted(false);
+		c46.setBackground(Color.WHITE);
+		panel_1.add(c46);
 		
-		JButton btnNewButton_47 = new JButton("New button");
-		btnNewButton_47.setBorderPainted(false);
-		btnNewButton_47.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_47);
+		JButton c47 = new JButton("c47");
+		c47.setBorderPainted(false);
+		c47.setBackground(new Color(160, 82, 45));
+		panel_1.add(c47);
 		
-		JButton btnNewButton_48 = new JButton("New button");
-		btnNewButton_48.setBorderPainted(false);
-		btnNewButton_48.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_48);
+		JButton c48 = new JButton("c48");
+		c48.setBorderPainted(false);
+		c48.setBackground(new Color(160, 82, 45));
+		panel_1.add(c48);
 		
-		JButton btnNewButton_49 = new JButton("New button");
-		btnNewButton_49.setBorderPainted(false);
-		btnNewButton_49.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_49);
+		JButton c49 = new JButton("c49");
+		c49.setBorderPainted(false);
+		c49.setBackground(Color.WHITE);
+		panel_1.add(c49);
 		
-		JButton btnNewButton_50 = new JButton("New button");
-		btnNewButton_50.setBorderPainted(false);
-		btnNewButton_50.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_50);
+		JButton c50 = new JButton("c50");
+		c50.setBorderPainted(false);
+		c50.setBackground(new Color(160, 82, 45));
+		panel_1.add(c50);
 		
-		JButton btnNewButton_52 = new JButton("New button");
-		btnNewButton_52.setBorderPainted(false);
-		btnNewButton_52.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_52);
+		JButton c51 = new JButton("c51");
+		c51.setBorderPainted(false);
+		c51.setBackground(Color.WHITE);
+		panel_1.add(c51);
 		
-		JButton btnNewButton_53 = new JButton("New button");
-		btnNewButton_53.setBorderPainted(false);
-		btnNewButton_53.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_53);
+		JButton c52 = new JButton("c52");
+		c52.setBorderPainted(false);
+		c52.setBackground(new Color(160, 82, 45));
+		panel_1.add(c52);
 		
-		JButton btnNewButton_54 = new JButton("New button");
-		btnNewButton_54.setBorderPainted(false);
-		btnNewButton_54.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_54);
+		JButton c53 = new JButton("c53");
+		c53.setBorderPainted(false);
+		c53.setBackground(Color.WHITE);
+		panel_1.add(c53);
 		
-		JButton btnNewButton_55 = new JButton("New button");
-		btnNewButton_55.setBorderPainted(false);
-		btnNewButton_55.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_55);
+		JButton c54 = new JButton("c54");
+		c54.setBorderPainted(false);
+		c54.setBackground(new Color(160, 82, 45));
+		panel_1.add(c54);
 		
-		JButton btnNewButton_56 = new JButton("New button");
-		btnNewButton_56.setBorderPainted(false);
-		btnNewButton_56.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_56);
+		JButton c55 = new JButton("c55");
+		c55.setBorderPainted(false);
+		c55.setBackground(Color.WHITE);
+		panel_1.add(c55);
 		
-		JButton btnNewButton_57 = new JButton("New button");
-		btnNewButton_57.setBorderPainted(false);
-		btnNewButton_57.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_57);
+		JButton c56 = new JButton("c56");
+		c56.setBorderPainted(false);
+		c56.setBackground(Color.WHITE);
+		panel_1.add(c56);
 		
-		JButton btnNewButton_59 = new JButton("New button");
-		btnNewButton_59.setBorderPainted(false);
-		btnNewButton_59.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_59);
+		JButton c57 = new JButton("c57");
+		c57.setBorderPainted(false);
+		c57.setBackground(new Color(160, 82, 45));
+		panel_1.add(c57);
 		
-		JButton btnNewButton_60 = new JButton("New button");
-		btnNewButton_60.setBorderPainted(false);
-		btnNewButton_60.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_60);
+		JButton c58 = new JButton("c58");
+		c58.setBorderPainted(false);
+		c58.setBackground(Color.WHITE);
+		panel_1.add(c58);
 		
-		JButton btnNewButton_61 = new JButton("New button");
-		btnNewButton_61.setBorderPainted(false);
-		btnNewButton_61.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_61);
+		JButton c59 = new JButton("c59");
+		c59.setBorderPainted(false);
+		c59.setBackground(new Color(160, 82, 45));
+		panel_1.add(c59);
 		
-		JButton btnNewButton_62 = new JButton("New button");
-		btnNewButton_62.setBorderPainted(false);
-		btnNewButton_62.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_62);
+		JButton c60 = new JButton("c60");
+		c60.setBorderPainted(false);
+		c60.setBackground(Color.WHITE);
+		panel_1.add(c60);
 		
-		JButton btnNewButton_63 = new JButton("New button");
-		btnNewButton_63.setBorderPainted(false);
-		btnNewButton_63.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_63);
+		JButton c61 = new JButton("c61");
+		c61.setBorderPainted(false);
+		c61.setBackground(new Color(160, 82, 45));
+		panel_1.add(c61);
 		
-		JButton btnNewButton_64 = new JButton("New button");
-		btnNewButton_64.setBorderPainted(false);
-		btnNewButton_64.setBackground(Color.WHITE);
-		panel_1.add(btnNewButton_64);
+		JButton c62 = new JButton("c62");
+		c62.setBorderPainted(false);
+		c62.setBackground(Color.WHITE);
+		panel_1.add(c62);
 		
-		JButton btnNewButton_65 = new JButton("New button");
-		btnNewButton_65.setBorderPainted(false);
-		btnNewButton_65.setBackground(new Color(160, 82, 45));
-		panel_1.add(btnNewButton_65);
-		
-		
+		JButton c63 = new JButton("c63");
+		c63.setBorderPainted(false);
+		c63.setBackground(new Color(160, 82, 45));
+		panel_1.add(c63);
 	}
 }
