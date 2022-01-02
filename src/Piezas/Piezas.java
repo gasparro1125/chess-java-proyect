@@ -68,8 +68,8 @@ public class  Piezas {
 
 	@Override
 	public String toString() {
-		return "Piezas [pieza=" + pieza + ", color=" + color + ", representacion=" + representacion + ", posicionY="
-				+ posicionY + ", posicionX=" + posicionX + "]";
+		return "Piezas [pieza=" + pieza + ", color=" + color + ", representacion=" + representacion + ", posicionX="
+				+ posicionX + ", posicionY=" + posicionY + "]";
 	}
 
 
