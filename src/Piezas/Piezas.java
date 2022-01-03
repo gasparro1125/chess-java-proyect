@@ -1,8 +1,9 @@
 package Piezas;
 
+import java.nio.charset.CoderMalfunctionError;
 import java.util.ArrayList;
 
-public class  Piezas {
+public  abstract class  Piezas {
 	
 	private String pieza;
 	private String color;
@@ -10,13 +11,14 @@ public class  Piezas {
 	private Integer posicionY;
 	private Integer posicionX;
 
+	public abstract int moveX(int x);
+	public abstract int moveY(int y);
 	
 	public Piezas(String pieza, String color ) {
 		this.pieza = pieza;
 		this.color = color;
 		this.representacion = pieza + color;
 	}
-
 	
 	
 	public String getPieza() {
