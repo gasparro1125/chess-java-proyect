@@ -194,7 +194,7 @@ public class table {
 	
 	public static String[][] movePieza(Piezas elegida,int x, int y, String [][] tablero){
 		
-		if (elegida.move(x, y) == true) {
+		if (elegida.move(elegida,x, y, piezas, casillasVacias(tablero)) == true) {
 			 int oldx = elegida.getPosicionX();
 			 int oldy= elegida.getPosicionY();
 			

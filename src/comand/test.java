@@ -1,6 +1,5 @@
 package comand;
 
-import javax.management.Query;
 
 import Piezas.Piezas;
 import table.table;
@@ -13,33 +12,54 @@ public class test {
 		String mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
 		
-		Piezas elegida = table.SelectPieza(1,1);
-		
-		tablero = table.movePieza(elegida, 2, 1, tablero);
-		System.out.println(elegida);
-		mostrarTablero = table.numberToTable(tablero);
-		System.out.println(mostrarTablero);
-		
-		tablero = table.movePieza(elegida, 3, 1, tablero);
-		System.out.println(elegida);
-		mostrarTablero = table.numberToTable(tablero);
-		System.out.println(mostrarTablero);
+		Piezas elegida = table.SelectPieza(6,1);
 		
 		tablero = table.movePieza(elegida, 4, 1, tablero);
 		System.out.println(elegida);
 		mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
 		
-		tablero = table.movePieza(elegida, 6, 1, tablero);
+		
+		elegida = table.SelectPieza(1,0);
+		
+		tablero = table.movePieza(elegida, 3, 0, tablero);
 		System.out.println(elegida);
 		mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
 		
-		tablero = table.movePieza(elegida, 7, 1, tablero);
+		
+		elegida = table.SelectPieza(1,1);
+		
+		tablero = table.movePieza(elegida, 3, 1, tablero);
 		System.out.println(elegida);
 		mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
 
+		
+		
+
+		elegida = table.SelectPieza(1,2);
+		
+		tablero = table.movePieza(elegida, 3, 2, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		
+		elegida = table.SelectPieza(4,1);
+		
+		tablero = table.movePieza(elegida, 3, 0, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		tablero = table.movePieza(elegida, 2, 1, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		
+		
 		
 		
 		

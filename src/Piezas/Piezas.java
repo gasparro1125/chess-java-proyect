@@ -11,7 +11,7 @@ public  abstract class  Piezas {
 	private Integer posicionY;
 	private Integer posicionX;
 
-	public abstract Boolean move(int x,int y);
+	public abstract Boolean move(Piezas p,int x,int y,ArrayList<ArrayList<ArrayList<Piezas>>> piezas,boolean[][] vacias);
 	
 	public Piezas(String pieza, String color ) {
 		this.pieza = pieza;
