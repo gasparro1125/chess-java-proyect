@@ -84,7 +84,7 @@ class PeonNegro  extends Piezas{
 			
 			else if( isNotFriend(selectionada, x, y, piezas)==true && ataque==false){
 				if(obstaculos(selectionada, x, y, vacias)==false && ataque==false) {
-					if(this.getPosicionX()==6 && x ==5 && this.getPosicionY()==y) check= true;
+				if(this.getPosicionX()==6 && x ==5 && this.getPosicionY()==y) check= true;
 					else if(this.getPosicionX()==6 && x ==4 && this.getPosicionY()==y) check= true;
 					else if(this.getPosicionX()<=5 && x==this.getPosicionX()-1 && this.getPosicionY()==y) check= true;
 					else return check;

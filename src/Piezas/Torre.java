@@ -8,6 +8,58 @@ public class Torre extends Piezas {
 		super(pieza, color);
 	}
 	
+	
+	
+	public static boolean obstaculos(Piezas selecionada ,int x, int y, boolean [][] vacias) {
+		ArrayList<Boolean> checks = new ArrayList<Boolean>();
+		boolean check = true;
+		int obsta = 0;
+		
+		if (selecionada.getPosicionX() != x) {
+
+			if (x < selecionada.getPosicionX()) {
+
+				for (int i = x; i< selecionada.getPosicionX(); i++) {
+					if (vacias[i][y] == true) {
+						checks.add(false);
+					}else checks.add(true);
+					
+				}
+			} else {
+				for (int i = x; selecionada.getPosicionX()<i; i--) {
+					if (vacias[i][y] == true) {
+						checks.add(false);
+					}else checks.add(true);
+				}
+			}
+		} else {
+			
+			if (y < selecionada.getPosicionX()) {
+
+				for (int i = y;i< selecionada.getPosicionX() ; i++) {
+					if (vacias[x][i] == true) {
+						checks.add(false);
+					}else checks.add(true);
+				}
+			} else {
+				for (int i = y; selecionada.getPosicionX()<i; i--) {
+					if (vacias[x][i] == true) {
+						checks.add(false);
+					}else checks.add(true);
+				}
+			}
+		}
+		
+		for (Boolean boolean1 : checks) {
+			if(boolean1==true)obsta++;
+		}
+		
+		if(obsta==0)check=false;
+		
+		System.out.println("obstaculos = " +check);
+		return check;
+	}
+	
 	public Piezas recorrerPiezas( int x, int y,ArrayList<ArrayList<ArrayList<Piezas>>> piezas ) {
 		Piezas check = null;
 		for (int i = 0; i<2;i++) {
@@ -20,7 +72,10 @@ public class Torre extends Piezas {
 			}
 		}
 		return check;
+		
 	}
+	
+	
 	
 	public boolean  isNotFriend(Piezas selectionada,int x, int y,ArrayList<ArrayList<ArrayList<Piezas>>> piezas ) {
 		Piezas objective = recorrerPiezas(x, y, piezas);
@@ -29,13 +84,57 @@ public class Torre extends Piezas {
 		else return true;
 	}
 	
+	
+	public boolean exixtVictim(Piezas selectionada,int x, int y,ArrayList<ArrayList<ArrayList<Piezas>>> piezas) {
+		boolean check = false;
+		Piezas objective = recorrerPiezas(x, y, piezas);
+		
+		if( objective==null) return check;
+		else if(objective.getColor()!= selectionada.getColor()) check = true;
+		
+		return check;
+		
+	}
+	
+	public boolean ataque(Piezas selectionada,int x, int y,boolean[][] vacias){
+		boolean check = false;
+		boolean existobstaculos;
+		
+		if(x != selectionada.getPosicionX()) {
+			if (x < selectionada.getPosicionX()) {
+				existobstaculos= obstaculos(selectionada, x+1, y, vacias);
+			}else existobstaculos= obstaculos(selectionada, x-1, y, vacias);
+		}else {
+			if (y < selectionada.getPosicionY()) {
+				existobstaculos= obstaculos(selectionada, x, y+1, vacias);
+			}else existobstaculos= obstaculos(selectionada, x, y-1, vacias);
+		}
+		if (existobstaculos != true) check = true;
+		
+		System.out.println("ataque = " +check);
+		return check;
+		
+	}
+	
+	public boolean ataqueTorre(Piezas selectionada,int x, int y,ArrayList<ArrayList<ArrayList<Piezas>>> piezas, boolean[][]vacias) {
+		if(exixtVictim(selectionada, x, y, piezas)== true && ataque(selectionada, x, y,vacias)== true) return true;
+		else return false;
+	}
+	
 	public Boolean move(Piezas selectionada,int x, int y,ArrayList<ArrayList<ArrayList<Piezas>>> piezas,boolean[][] vacias) {
 		boolean check = false;
+		boolean ataque = ataqueTorre(selectionada, x, y, piezas,vacias);
+		
 		if(x<=7 && x>=0 && y<=7 && y>=0) {
-			if( isNotFriend(selectionada, x, y, piezas)==true) {
-				
-				if(this.getPosicionX()==x || this.getPosicionY()==y) check = true;
-				else return check;
+			System.out.println("ataqueTorre = " +ataque);
+			
+			if( isNotFriend(selectionada, x, y, piezas)==true && ataque==true ) check =true;
+			
+			else if( isNotFriend(selectionada, x, y, piezas)==true && ataque==false) {
+				if(obstaculos(selectionada, x, y, vacias)==false){
+					if(this.getPosicionX()==x || this.getPosicionY()==y) check = true;
+					else return check;
+				}
 			}else return check;
 		}
 		else return check;
