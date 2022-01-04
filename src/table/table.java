@@ -1,7 +1,9 @@
 package table;
 
+import java.awt.print.Book;
 import java.security.KeyStore.TrustedCertificateEntry;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import Piezas.MountPiezas;
 import Piezas.Piezas;
@@ -158,10 +160,23 @@ public class table {
 				ReyNegro.get(0).setPosicionX(7);
 				ReyNegro.get(0).setPosicionY(i);
 			}
-		}			
+		}
+		
 		return tablero;
 	}
 
+	public static boolean[][] casillasVacias(String[][] table){
+		String [][]tablero =  table;
+		boolean [][] casillasVacias = new boolean[8][8];
+		
+		for (int i = 0; i<tablero.length;i++) {
+			for (int j = 0; j< tablero[i].length;j++) {
+				if(tablero[i][j]=="|||||" || tablero[i][j]=="     ") casillasVacias[i][j]=true;
+				else casillasVacias[i][j]=false;
+			}
+		}
+		return casillasVacias;
+	}
 	
 	public static Piezas SelectPieza(int x, int y) {
 		Piezas check = null;
@@ -178,43 +193,35 @@ public class table {
 	}
 	
 	public static String[][] movePieza(Piezas elegida,int x, int y, String [][] tablero){
-		 int oldx = elegida.getPosicionX();
-		 int oldy= elegida.getPosicionY();
 		
-		 for (int i = 0; i<2;i++) {
-				for (int j = 0; j<6;j++) {
-					for (int z = 0; z < piezas.get(i).get(j).size(); z++) {
-						if(piezas.get(i).get(j).get(z).getPosicionX()==x && piezas.get(i).get(j).get(z).getPosicionY()==y) {
-							piezas.get(i).get(j).remove(z);
+		if (elegida.move(x, y) == true) {
+			 int oldx = elegida.getPosicionX();
+			 int oldy= elegida.getPosicionY();
+			
+			 for (int i = 0; i<2;i++) {
+					for (int j = 0; j<6;j++) {
+						for (int z = 0; z < piezas.get(i).get(j).size(); z++) {
+							if(piezas.get(i).get(j).get(z).getPosicionX()==x && piezas.get(i).get(j).get(z).getPosicionY()==y) {
+								piezas.get(i).get(j).remove(z);
+							}
 						}
 					}
 				}
-			}
-		 
-		elegida.setPosicionX(x);
-		elegida.setPosicionY(y);
-		
-		if(tablero[oldx][oldy].indexOf(" ") >=0)
-			tablero[oldx][oldy]=("     ");
-		else
-			tablero[oldx][oldy]=("|||||");
-		
-		
-		
-		tablero[elegida.getPosicionX()][elegida.getPosicionY()] = representationShell(x,y,elegida.getRepresentacion());
-		
+			 
+			elegida.setPosicionX(x);
+			elegida.setPosicionY(y);
+			
+			if(tablero[oldx][oldy].indexOf(" ") >=0)
+				tablero[oldx][oldy]=("     ");
+			else
+				tablero[oldx][oldy]=("|||||");
+			
+			
+			
+			tablero[elegida.getPosicionX()][elegida.getPosicionY()] = representationShell(x,y,elegida.getRepresentacion());
+		}
+		else System.out.println("movimiento no posible");
 		
 		return tablero;
-	}
-	
-	
-	public static void intento() {
-		 for (int i = 0; i<2;i++) {
-				for (int j = 0; j<6;j++) {
-					for (Integer l = 0; l < piezas.get(i).get(j).size(); l++) {
-						System.out.println( piezas.get(i).get(j).get(l));
-					}
-				}
-			}
 	}
 }

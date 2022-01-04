@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class MountPiezas {
 	
 	
-	private static Peon peonBlanco(){
-		Peon PeonBlanco = new Peon("P","B");
+	private static PeonBlanco peonBlanco(){
+		PeonBlanco PeonBlanco = new PeonBlanco("P","B");
 		return PeonBlanco;
 	}
 	
@@ -37,8 +37,8 @@ public class MountPiezas {
 	
 //*************************************************************************
 	
-	private static Peon peonNegro(){
-		Peon PeonNegro = new Peon("P","N");
+	private static PeonNegro peonNegro(){
+		PeonNegro PeonNegro = new PeonNegro("P","N");
 		return PeonNegro;
 	}
 	
@@ -69,7 +69,7 @@ public class MountPiezas {
 	
 	//***********************************************************************************************
 	public static ArrayList<ArrayList<ArrayList<Piezas>>> mountPiezas(){
-		ArrayList<ArrayList<ArrayList<Piezas>>> piezas  = new ArrayList<>(2);
+		ArrayList<ArrayList<ArrayList<Piezas>>> piezas  = new ArrayList<>(3);
 		
 		//inicializo cada indice coin un arraylist Tridimensionl dentro
 		for (int i = 0; i < 2; i++) {

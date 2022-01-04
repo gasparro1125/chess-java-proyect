@@ -5,14 +5,8 @@ public class Rey  extends Piezas{
 		super(pieza, color);
 	}
 	
-	public int moveX(int x) {
-		this.setPosicionX(x);
-		return getPosicionX();
+public Boolean move(int x, int y) {
+		
+		return false;
 	}
-	
-	public int moveY(int y) {
-		this.setPosicionY(y);
-		return getPosicionY();
-	}
-
 }

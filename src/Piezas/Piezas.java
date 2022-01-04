@@ -11,8 +11,7 @@ public  abstract class  Piezas {
 	private Integer posicionY;
 	private Integer posicionX;
 
-	public abstract int moveX(int x);
-	public abstract int moveY(int y);
+	public abstract Boolean move(int x,int y);
 	
 	public Piezas(String pieza, String color ) {
 		this.pieza = pieza;

@@ -6,13 +6,15 @@ public class Torre extends Piezas {
 		super(pieza, color);
 	}
 	
-	public int moveX(int x) {
-		this.setPosicionX(x);
-		return getPosicionX();
-	}
 	
-	public int moveY(int y) {
-		this.setPosicionY(y);
-		return getPosicionY();
+	public Boolean move(int x, int y) {
+		boolean check = false;
+		if(x<=7 && x>=0 && y<=7 && y>=0) {
+			
+			if(this.getPosicionX()==x || this.getPosicionY()==y) check = true;
+			else return check;
+		}
+		else return check;
+		return check;		
 	}
 }
