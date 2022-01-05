@@ -33,15 +33,13 @@ public class Alfil extends Piezas {
 							if (vacias[i][j] == true)
 								checks.add(false);
 							else {
-								System.out.println("aumento1");
 								checks.add(true);
 							}
 						}
 					}
 				}
 			}
-		} 
-		else if (x > selecionada.getPosicionX()) {
+		} else if (x > selecionada.getPosicionX()) {
 			if (y > selecionada.getPosicionY()) {
 				for (int i = x; i > selecionada.getPosicionX(); i--) {
 					for (int j = y; j > selecionada.getPosicionY(); j--) {
@@ -68,7 +66,6 @@ public class Alfil extends Piezas {
 				}
 			}
 		}
-		
 
 		for (Boolean boolean1 : checks) {
 			if (boolean1 == true)
@@ -79,7 +76,6 @@ public class Alfil extends Piezas {
 			check = false;
 
 		System.out.println("obstaculos = " + check);
-		System.out.println(obsta);
 		return check;
 	}
 
@@ -103,19 +99,70 @@ public class Alfil extends Piezas {
 		if (objective == null)
 			return true;
 		else if (objective.getColor() == selectionada.getColor()) {
-			System.out.println("Heyy");
 			return false;
 		} else
 			return true;
 	}
 
-	public Boolean move(Piezas selectionada, int x, int y, ArrayList<ArrayList<ArrayList<Piezas>>> piezas,
-			boolean[][] vacias) {
+	public boolean exixtVictim(Piezas selectionada, int x, int y, ArrayList<ArrayList<ArrayList<Piezas>>> piezas) {
 		boolean check = false;
+		Piezas objective = recorrerPiezas(x, y, piezas);
 
+		if (objective == null)
+			return check;
+		else if (objective.getColor() != selectionada.getColor())
+			check = true;
+
+		System.out.println("hay victima = " + check);
+		return check;
+
+	}
+
+	public boolean ataque(Piezas selectionada, int x, int y, boolean[][] vacias) {
+		boolean check = false;
+		boolean existobstaculos = false;
+
+		if (x < selectionada.getPosicionX()) {
+			if (y > selectionada.getPosicionY()) {
+				existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
+			} else if (y < selectionada.getPosicionY()) {
+				existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
+			}
+
+		} else {
+			if (y > selectionada.getPosicionY()) {
+				existobstaculos = obstaculos(selectionada, x + 1, y - 1, vacias);
+			} else if (y < selectionada.getPosicionY()) {
+				existobstaculos = obstaculos(selectionada, x + 1, y + 1, vacias);
+			}
+
+		}
+		
+		if (existobstaculos != true) check = true;
+		
+		System.out.println("ataque = " + check);
+		return check;
+
+	}
+
+	public boolean ataqueAlfil(Piezas selectionada, int x, int y, ArrayList<ArrayList<ArrayList<Piezas>>> piezas,
+			boolean[][] vacias) {
+		if (exixtVictim(selectionada, x, y, piezas) == true && ataque(selectionada, x, y, vacias) == true)
+			return true;
+		else
+			return false;
+	}
+
+	public Boolean move(Piezas selectionada, int x, int y, ArrayList<ArrayList<ArrayList<Piezas>>> piezas, boolean[][] vacias) {
+		boolean check = false;
+		boolean ataque = ataqueAlfil(selectionada, x, y, piezas,vacias);
+		
 		if (x <= 7 && x >= 0 && y <= 7 && y >= 0) {
-
-			if (isNotFriend(selectionada, x, y, piezas) == true) {
+			
+			if( isNotFriend(selectionada, x, y, piezas)==true && ataque==true ) check =true;
+			
+			
+			else if (isNotFriend(selectionada, x, y, piezas) == true && ataque==false) {
 				if (obstaculos(selectionada, x, y, vacias) == false) {
 					if (x < selectionada.getPosicionX()) {
 						if (y > selectionada.getPosicionY()) {

@@ -15,53 +15,10 @@ public class test {
 		Piezas elegida = table.SelectPieza(6,1);
 		
 
-		tablero = table.movePieza(elegida, 5, 1, tablero);
+		tablero = table.movePieza(elegida, 4, 1, tablero);
 		System.out.println(elegida);
 		mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
-		
-		elegida = table.SelectPieza(6,4);
-		
-
-		tablero = table.movePieza(elegida, 4, 4, tablero);
-		System.out.println(elegida);
-		mostrarTablero = table.numberToTable(tablero);
-		System.out.println(mostrarTablero);
-		
-		
-		elegida = table.SelectPieza(7,2);
-		
-		tablero = table.movePieza(elegida, 6,1, tablero);
-		System.out.println(elegida);
-		mostrarTablero = table.numberToTable(tablero);
-		System.out.println(mostrarTablero);
-		
-		tablero = table.movePieza(elegida, 4,3, tablero);
-		System.out.println(elegida);
-		mostrarTablero = table.numberToTable(tablero);
-		System.out.println(mostrarTablero);
-		
-		elegida = table.SelectPieza(6,2);
-		
-		tablero = table.movePieza(elegida, 4,2, tablero);
-		System.out.println(elegida);
-		mostrarTablero = table.numberToTable(tablero);
-		System.out.println(mostrarTablero);	
-		
-		elegida = table.SelectPieza(6,5);
-		
-		tablero = table.movePieza(elegida, 5,5, tablero);
-		System.out.println(elegida);
-		mostrarTablero = table.numberToTable(tablero);
-		System.out.println(mostrarTablero);	
-		
-		elegida = table.SelectPieza(4,3);
-		
-		tablero = table.movePieza(elegida, 6,5, tablero);
-		System.out.println(elegida);
-		mostrarTablero = table.numberToTable(tablero);
-		System.out.println(mostrarTablero);	
-
 		
 		
 		boolean[][] prueba= table.casillasVacias(tablero);
