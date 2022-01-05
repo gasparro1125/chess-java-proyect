@@ -34,15 +34,15 @@ public class Torre extends Piezas {
 			}
 		} else {
 			
-			if (y < selecionada.getPosicionX()) {
+			if (y < selecionada.getPosicionY()) {
 
-				for (int i = y;i< selecionada.getPosicionX() ; i++) {
+				for (int i = y;i< selecionada.getPosicionY() ; i++) {
 					if (vacias[x][i] == true) {
 						checks.add(false);
 					}else checks.add(true);
 				}
 			} else {
-				for (int i = y; selecionada.getPosicionX()<i; i--) {
+				for (int i = y; selecionada.getPosicionY()<i; i--) {
 					if (vacias[x][i] == true) {
 						checks.add(false);
 					}else checks.add(true);
@@ -92,7 +92,7 @@ public class Torre extends Piezas {
 		if( objective==null) return check;
 		else if(objective.getColor()!= selectionada.getColor()) check = true;
 		
-		System.out.println("hay vitima = " +check);
+		System.out.println("hay victima = " +check);
 		return check;
 		
 	}
