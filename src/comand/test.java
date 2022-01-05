@@ -12,7 +12,60 @@ public class test {
 		String mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
 		
-		Piezas elegida = table.SelectPieza(7,0);
+		Piezas elegida = table.SelectPieza(6,1);
+		
+
+		tablero = table.movePieza(elegida, 4, 1, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		tablero = table.movePieza(elegida, 3, 1, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		
+		tablero = table.movePieza(elegida, 2, 1, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		tablero = table.movePieza(elegida, 1, 1, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		
+		
+		elegida = table.SelectPieza(1,1);
+		tablero = table.movePieza(elegida, 3, 1, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		
+		elegida = table.SelectPieza(1,0);
+		tablero = table.movePieza(elegida, 2, 1, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		
+		elegida = table.SelectPieza(1,1);
+		tablero = table.movePieza(elegida, 3, 1, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		
+		
+		elegida = table.SelectPieza(0,0);
+		tablero = table.movePieza(elegida, 6, 0, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
 		/*
 		tablero = table.movePieza(elegida, 4, 1, tablero);
 		System.out.println(elegida);
@@ -56,14 +109,34 @@ public class test {
 		mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
 		
-		elegida = table.SelectPieza(3,1);
+		
+
+		elegida = table.SelectPieza(6,1);
 		tablero = table.movePieza(elegida, 4, 1, tablero);
 		System.out.println(elegida);
 		mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
 		
-		*/
+	
+	
 		
+		elegida = table.SelectPieza(3,2);
+		
+		tablero = table.movePieza(elegida, 4, 1, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		
+		elegida = table.SelectPieza(3,1);
+		
+		tablero = table.movePieza(elegida, 5, 1, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		*/
+		/*
 		elegida = table.SelectPieza(6,0);
 		
 		tablero = table.movePieza(elegida,4,0 , tablero);
@@ -165,7 +238,7 @@ public class test {
 		System.out.println(elegida);
 		mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
-		
+		*/
 		
 		boolean[][] prueba= table.casillasVacias(tablero);
 		

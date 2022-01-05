@@ -92,6 +92,7 @@ public class Torre extends Piezas {
 		if( objective==null) return check;
 		else if(objective.getColor()!= selectionada.getColor()) check = true;
 		
+		System.out.println("hay vitima = " +check);
 		return check;
 		
 	}
@@ -126,7 +127,6 @@ public class Torre extends Piezas {
 		boolean ataque = ataqueTorre(selectionada, x, y, piezas,vacias);
 		
 		if(x<=7 && x>=0 && y<=7 && y>=0) {
-			System.out.println("ataqueTorre = " +ataque);
 			
 			if( isNotFriend(selectionada, x, y, piezas)==true && ataque==true ) check =true;
 			

@@ -11,19 +11,38 @@ public class PeonBlanco extends Piezas {
 	
 	
 	public static boolean obstaculos(Piezas selecionada ,int x, int y, boolean [][] vacias) {
+		ArrayList<Boolean> checks = new ArrayList<Boolean>();
 		boolean check = true;
-		
-		for(int i = x; selecionada.getPosicionX()<i;i++ ) {
-			if(vacias[x][y]== true) {
-				check = false;
+		int obsta = 0;
+
+		if (x == selecionada.getPosicionX() - 1) {
+			for (int i = x; i > selecionada.getPosicionX(); i--) {
+				if (vacias[x][y] == true) {
+					check = false;
+					return check;
+				}
 				return check;
 			}
-			return check;
+		} else {
+			for (int i = x; i > selecionada.getPosicionX(); i--) {
+				if (vacias[i][y] == true)
+					checks.add(false);
+				else
+					checks.add(true);
+			}
 		}
-		System.out.println("obstaculo = " +check);
+
+		for (Boolean boolean1 : checks) {
+			if (boolean1 == true)
+				obsta++;
+		}
+
+		if (obsta == 0)
+			check = false;
+
+		System.out.println( "hay obstaculo = " +check);
 		return check;
 	}
-	
 	
 	
 	
@@ -56,6 +75,8 @@ public class PeonBlanco extends Piezas {
 		if( objective==null) return check;
 		else if(objective.getColor()!= selectionada.getColor()) check = true;
 		
+		
+		System.out.println("hay vitima = " +check);
 		return check;
 		
 	}
