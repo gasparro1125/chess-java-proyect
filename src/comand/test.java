@@ -12,14 +12,45 @@ public class test {
 		String mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
 		
-		Piezas elegida = table.SelectPieza(6,1);
+		Piezas elegida = table.SelectPieza(1,3);
 		
 
-		tablero = table.movePieza(elegida, 4, 1, tablero);
+		tablero = table.movePieza(elegida, 3, 3, tablero);
 		System.out.println(elegida);
 		mostrarTablero = table.numberToTable(tablero);
 		System.out.println(mostrarTablero);
 		
+		elegida = table.SelectPieza(0,2);
+		
+
+		tablero = table.movePieza(elegida, 5, 7, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		tablero = table.movePieza(elegida, 6, 6, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		tablero = table.movePieza(elegida, 7, 7, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		elegida = table.SelectPieza(0,4);
+		
+
+		tablero = table.movePieza(elegida, 1,3, tablero);
+		System.out.println(elegida);
+		mostrarTablero = table.numberToTable(tablero);
+		System.out.println(mostrarTablero);
+		
+		
+		
+
+		
+		
+
 		
 		boolean[][] prueba= table.casillasVacias(tablero);
 		

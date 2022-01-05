@@ -131,9 +131,9 @@ public class Alfil extends Piezas {
 
 		} else {
 			if (y > selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x + 1, y - 1, vacias);
+				existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
 			} else if (y < selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x + 1, y + 1, vacias);
+				existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
 			}
 
 		}
