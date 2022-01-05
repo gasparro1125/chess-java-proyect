@@ -37,12 +37,12 @@ public class table {
 				cambio = !cambio;
 				for (int j = 0; j < tablero[i].length; j++) {
 					if(cambio==false) {											//Representacion abse
-						if(casillas%2==0) tablero[i][j]=("     ");
-						else tablero[i][j]=("|||||");
+						if(casillas%2==0) tablero[i][j]=("    ");
+						else tablero[i][j]=("||||");
 						casillas++;
 					}else {
-						if(casillas%2!=0) tablero[i][j]=("     ");
-						else tablero[i][j]=("|||||");
+						if(casillas%2!=0) tablero[i][j]=("    ");
+						else tablero[i][j]=("||||");
 						casillas++;
 					}
 				}
@@ -171,7 +171,7 @@ public class table {
 		
 		for (int i = 0; i<tablero.length;i++) {
 			for (int j = 0; j< tablero[i].length;j++) {
-				if(tablero[i][j]=="|||||" || tablero[i][j]=="     ") casillasVacias[i][j]=true;
+				if(tablero[i][j]=="||||" || tablero[i][j]=="    ") casillasVacias[i][j]=true;
 				else casillasVacias[i][j]=false;
 			}
 		}
@@ -212,9 +212,9 @@ public class table {
 			elegida.setPosicionY(y);
 			
 			if(tablero[oldx][oldy].indexOf(" ") >=0)
-				tablero[oldx][oldy]=("     ");
+				tablero[oldx][oldy]=("    ");
 			else
-				tablero[oldx][oldy]=("|||||");
+				tablero[oldx][oldy]=("||||");
 			
 			
 			
