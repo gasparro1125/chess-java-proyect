@@ -38,7 +38,7 @@ class PeonNegro  extends Piezas{
 		
 		if(obsta==0)check=false;
 		
-		System.out.println( "hay obstaculo = " +check);
+		//System.out.println( "hay obstaculo = " +check);
 		return check;
 	}
 	
@@ -72,7 +72,7 @@ class PeonNegro  extends Piezas{
 		if( objective==null) return check;
 		else if(objective.getColor()!= selectionada.getColor()) check = true;
 		
-		System.out.println("hay vitima = " +check);
+		//System.out.println("hay vitima = " +check);
 		return check;
 		
 		
@@ -84,7 +84,7 @@ class PeonNegro  extends Piezas{
 		if(selectionada.getPosicionX()-1==x && selectionada.getPosicionY()-1==y) check = true;
 		else if(selectionada.getPosicionX()-1==x && selectionada.getPosicionY()+1==y) check = true;
 		
-		System.out.println("ataque = " + check);
+		//System.out.println("ataque = " + check);
 		return check;
 		
 	}

@@ -56,7 +56,7 @@ public class Torre extends Piezas {
 		
 		if(obsta==0)check=false;
 		
-		System.out.println("obstaculos = " +check);
+		//System.out.println("obstaculos = " +check);
 		return check;
 	}
 	
@@ -92,7 +92,7 @@ public class Torre extends Piezas {
 		if( objective==null) return check;
 		else if(objective.getColor()!= selectionada.getColor()) check = true;
 		
-		System.out.println("hay victima = " +check);
+		//System.out.println("hay victima = " +check);
 		return check;
 		
 	}
@@ -112,7 +112,7 @@ public class Torre extends Piezas {
 		}
 		if (existobstaculos != true) check = true;
 		
-		System.out.println("ataque = " +check);
+		//System.out.println("ataque = " +check);
 		return check;
 		
 	}
