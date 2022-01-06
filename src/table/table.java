@@ -252,13 +252,7 @@ public class table {
 		return rey;
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 }
+
+

@@ -1,15 +1,12 @@
 package InterfazCMD;
 
 import java.util.Scanner;
-
-import javax.naming.ldap.HasControls;
-
 import Piezas.Piezas;
 import table.table;
 
 public class InterfaceComand {
 
-	public static void main(String[] args) {
+	public static void ajedrez() {
 
 		String[][] tablero = table.Begin();
 		String mostrarTablero = table.numberToTable(tablero);
@@ -19,7 +16,7 @@ public class InterfaceComand {
 		Scanner teclado = new Scanner(System.in);
 
 		while (statusReyBlanco == true && statusReyNegro == true) {
-
+			
 			System.out.println("Turno de las blancas.");
 
 			Piezas elegida = null;
@@ -61,9 +58,11 @@ public class InterfaceComand {
 					mostrarTablero = table.numberToTable(tablero);
 				}
 			}
+ 
+		    System.out.flush(); 
 			System.out.println(mostrarTablero);
 			statusReyNegro = table.busquedaRey(1);
-
+			
 			System.out.println("Turno de las negras.");
 
 			elegida = null;
@@ -105,6 +104,8 @@ public class InterfaceComand {
 					mostrarTablero = table.numberToTable(tablero);
 				}
 			}
+ 
+		    System.out.flush(); 
 			System.out.println(mostrarTablero);
 			statusReyBlanco = table.busquedaRey(0);
 

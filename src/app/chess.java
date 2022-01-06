@@ -1,11 +1,12 @@
 package app;
+import InterfazCMD.InterfaceComand;
 import table.table;
 
 public class chess {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		table.table();
+		InterfaceComand.ajedrez();
+		
 	}
 
 }
