@@ -6,7 +6,7 @@ import table.table;
 
 public class InterfaceComand {
 
-	public static void ajedrez() {
+	public static void ajedrez(){
 
 		String[][] tablero = table.Begin();
 		String mostrarTablero = table.numberToTable(tablero);
@@ -58,10 +58,9 @@ public class InterfaceComand {
 					mostrarTablero = table.numberToTable(tablero);
 				}
 			}
- 
-		    System.out.flush(); 
 			System.out.println(mostrarTablero);
 			statusReyNegro = table.busquedaRey(1);
+			if (statusReyNegro==false) break;
 			
 			System.out.println("Turno de las negras.");
 
@@ -105,7 +104,6 @@ public class InterfaceComand {
 				}
 			}
  
-		    System.out.flush(); 
 			System.out.println(mostrarTablero);
 			statusReyBlanco = table.busquedaRey(0);
 

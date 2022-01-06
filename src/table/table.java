@@ -1,9 +1,5 @@
 package table;
-import java.awt.print.Book;
-import java.security.KeyStore.TrustedCertificateEntry;
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import Piezas.MountPiezas;
 import Piezas.Piezas;
 
