@@ -1,5 +1,4 @@
 package table;
-
 import java.awt.print.Book;
 import java.security.KeyStore.TrustedCertificateEntry;
 import java.util.ArrayList;
@@ -252,7 +251,7 @@ public class table {
 		return rey;
 		
 	}
-		
+	
 }
 
 
