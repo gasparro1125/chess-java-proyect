@@ -55,11 +55,11 @@ public class InterfaceComand {
 				if (checkPosibleBlanca == true) {
 					tablero = table.movePieza(elegida, mf, mc, tablero);
 					checkMoveBlanca = true;
+					table.peonPolimorf(tablero);
 					mostrarTablero = table.numberToTable(tablero);
 				}
 			}
 			
-			table.peonPolimorf(tablero); // se actualiza tarde pues espera a la siguiente actualziacion de mostrar tablero, es por ello que deberiamos hacer que devulva un booleando de manera que si es true se ejecute una actualiacion trablero
 			
 			System.out.println(mostrarTablero);
 			statusReyNegro = table.busquedaRey(1);
@@ -105,15 +105,15 @@ public class InterfaceComand {
 				if (checkPosibleNegra == true) {
 					tablero = table.movePieza(elegida, mf, mc, tablero);
 					checkMoveNegra = true;
+					table.peonPolimorf(tablero);
 					mostrarTablero = table.numberToTable(tablero);
 				}
 			}
  
-			table.peonPolimorf(tablero);
 			System.out.println(mostrarTablero);
 			statusReyBlanco = table.busquedaRey(0);
 
-			table.muestreo();
+			//table.muestreo();
 		}
 		System.out.println("Fin de la partida");
 

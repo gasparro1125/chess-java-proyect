@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import Piezas.MountPiezas;
 import Piezas.Piezas;
 import Piezas.Reina;
+import java.util.Scanner;
 
 public class table {
 
+	
 	static MountPiezas guardo = new MountPiezas();
 	static ArrayList<ArrayList<ArrayList<Piezas>>> piezas = guardo.mountPiezas();
 
@@ -251,33 +253,65 @@ public class table {
 	}
 	
 	public static void peonPolimorf( String[][] tablero) {
-		//Poenes Blancos
+		//Peones Blancos
 		for(int i = 0  ;i< piezas.get(0).get(0).size();i++) {
 			if(piezas.get(0).get(0).get(i).getPosicionX()==7) {
 				int posx = piezas.get(0).get(0).get(i).getPosicionX();
 				int posy = piezas.get(0).get(0).get(i).getPosicionY();
 				piezas.get(0).get(0).remove(i);
-				System.out.println("podemos evolucionar las blancas");
+				System.out.println("podemos evolucionar el peon blanco a:");
+				Scanner teclado = new Scanner(System.in);
+				System.out.printf("1 - Torre\n 2- Caballo \n 3-Alfil \n 4-Reina\n");
+				int respuesta = 0;
 				
-				Piezas piezaEvolucionadoPiezas = MountPiezas.reinaBlanca();
-				piezaEvolucionadoPiezas.setPosicionX(posx);
-				piezaEvolucionadoPiezas.setPosicionY(posy);
-				
-			piezas.get(0).get(4).add(piezaEvolucionadoPiezas);	//importar metodo de creacion de Mount Pieza por cada tipo de pieza, he tenido que cambiar la creacion de cada pieza de private a public
-				tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
-						piezaEvolucionadoPiezas.getRepresentacion());
-			}
-			
-			
+				while(respuesta!=1 || respuesta!=2 || respuesta !=3 || respuesta!=4) {
+					System.out.print("¿Que eliges?: ");
+					respuesta=teclado.nextInt();
+				}
+
+				if (respuesta == 1) {
+					Piezas piezaEvolucionadoPiezas = MountPiezas.torreBlanca();
+					piezaEvolucionadoPiezas.setPosicionX(posx);
+					piezaEvolucionadoPiezas.setPosicionY(posy);
+					
+					piezas.get(0).get(1).add(piezaEvolucionadoPiezas);
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
+							piezaEvolucionadoPiezas.getRepresentacion());
+				} else if (respuesta == 2) {
+					Piezas piezaEvolucionadoPiezas = MountPiezas.caballoBlanco();
+					piezaEvolucionadoPiezas.setPosicionX(posx);
+					piezaEvolucionadoPiezas.setPosicionY(posy);
+					
+					piezas.get(0).get(2).add(piezaEvolucionadoPiezas);	
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
+							piezaEvolucionadoPiezas.getRepresentacion());
+				} else if (respuesta == 3) {
+					Piezas piezaEvolucionadoPiezas = MountPiezas.alfilBlanco();
+					piezaEvolucionadoPiezas.setPosicionX(posx);
+					piezaEvolucionadoPiezas.setPosicionY(posy);
+					
+					piezas.get(0).get(3).add(piezaEvolucionadoPiezas);
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
+							piezaEvolucionadoPiezas.getRepresentacion());
+				} else {
+					Piezas piezaEvolucionadoPiezas = MountPiezas.reinaBlanca();
+					piezaEvolucionadoPiezas.setPosicionX(posx);
+					piezaEvolucionadoPiezas.setPosicionY(posy);
+					
+					piezas.get(0).get(4).add(piezaEvolucionadoPiezas);
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
+							piezaEvolucionadoPiezas.getRepresentacion());
+				}
+				}
 		}
 		
-		//Poenes negros
+		//Peones negros
 				for(int i = 0  ;i< piezas.get(1).get(0).size();i++) {
 					if(piezas.get(1).get(0).get(i).getPosicionX()==0) System.out.println("podemos evolucionar los negros");
 				}
 	}
 	
-	
+	/*
 	public static void muestreo() {
 		for (int i = 0; i < 2; i++) {
 			for (int j = 0; j < 6; j++) {
@@ -287,6 +321,7 @@ public class table {
 				}
 			}
 	}
+	*/
 	
 }
 

@@ -37,32 +37,32 @@ public class MountPiezas {
 	
 //*************************************************************************
 	
-	private static PeonNegro peonNegro(){
+	public static PeonNegro peonNegro(){
 		PeonNegro PeonNegro = new PeonNegro("P","N");
 		return PeonNegro;
 	}
 	
-	private static Torre torreNegra(){
+	public static Torre torreNegra(){
 		Torre TorreNegra = new Torre("T","N");
 		return TorreNegra;
 	}
 	
-	private static Caballo caballoNegro(){
+	public static Caballo caballoNegro(){
 		Caballo CaballoNegro = new Caballo("C","N");
 		return CaballoNegro;
 	}
 
-	private static Alfil alfilNegro(){
+	public static Alfil alfilNegro(){
 		Alfil AlfilNegro = new Alfil("A","N");
 		return AlfilNegro;
 	}
 	
-	private static Reina reinaNegra(){
+	public static Reina reinaNegra(){
 		Reina ReinaNegra = new Reina("Q","N");
 		return ReinaNegra;
 	}
 	
-	private static Rey reyNegro(){
+	public static Rey reyNegro(){
 		Rey ReyNegro = new Rey("R","N");
 		return ReyNegro;
 	}
