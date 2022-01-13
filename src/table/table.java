@@ -1,7 +1,9 @@
 package table;
+import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import Piezas.MountPiezas;
 import Piezas.Piezas;
+import Piezas.Reina;
 
 public class table {
 
@@ -246,6 +248,44 @@ public class table {
 		if (piezas.get(i).get(5).size()==0) rey= false;
 		return rey;
 		
+	}
+	
+	public static void peonPolimorf( String[][] tablero) {
+		//Poenes Blancos
+		for(int i = 0  ;i< piezas.get(0).get(0).size();i++) {
+			if(piezas.get(0).get(0).get(i).getPosicionX()==7) {
+				int posx = piezas.get(0).get(0).get(i).getPosicionX();
+				int posy = piezas.get(0).get(0).get(i).getPosicionY();
+				piezas.get(0).get(0).remove(i);
+				System.out.println("podemos evolucionar las blancas");
+				
+				Piezas piezaEvolucionadoPiezas = MountPiezas.reinaBlanca();
+				piezaEvolucionadoPiezas.setPosicionX(posx);
+				piezaEvolucionadoPiezas.setPosicionY(posy);
+				
+			piezas.get(0).get(4).add(piezaEvolucionadoPiezas);	//importar metodo de creacion de Mount Pieza por cada tipo de pieza, he tenido que cambiar la creacion de cada pieza de private a public
+				tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
+						piezaEvolucionadoPiezas.getRepresentacion());
+			}
+			
+			
+		}
+		
+		//Poenes negros
+				for(int i = 0  ;i< piezas.get(1).get(0).size();i++) {
+					if(piezas.get(1).get(0).get(i).getPosicionX()==0) System.out.println("podemos evolucionar los negros");
+				}
+	}
+	
+	
+	public static void muestreo() {
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 6; j++) {
+				for (int z = 0; z < piezas.get(i).get(j).size(); z++) {
+					System.out.println(piezas.get(i).get(j).get(z));
+				}
+				}
+			}
 	}
 	
 }

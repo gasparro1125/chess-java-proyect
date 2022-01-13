@@ -5,32 +5,32 @@ import java.util.ArrayList;
 public class MountPiezas {
 	
 	
-	private static PeonBlanco peonBlanco(){
+	public static PeonBlanco peonBlanco(){
 		PeonBlanco PeonBlanco = new PeonBlanco("P","B");
 		return PeonBlanco;
 	}
 	
-	private static Torre torreBlanca(){
+	public static Torre torreBlanca(){
 		Torre TorreBlanca = new Torre("T","B");
 		return TorreBlanca;
 	}
 	
-	private static Caballo caballoBlanco(){
+	public static Caballo caballoBlanco(){
 		Caballo CaballoBlanco = new Caballo("C","B");
 		return CaballoBlanco;
 	}
 
-	private static Alfil alfilBlanco(){
+	public static Alfil alfilBlanco(){
 		Alfil AlfilBlanco = new Alfil("A","B");
 		return AlfilBlanco;
 	}
 	
-	private static Reina reinaBlanca(){
+	public static Reina reinaBlanca(){
 		Reina ReinaBlanca = new Reina("Q","B");
 		return ReinaBlanca;
 	}
 	
-	private static Rey reyBlanco(){
+	public static Rey reyBlanco(){
 		Rey ReyBlanco = new Rey("R","B");
 		return ReyBlanco;
 	}

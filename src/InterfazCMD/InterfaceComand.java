@@ -58,6 +58,9 @@ public class InterfaceComand {
 					mostrarTablero = table.numberToTable(tablero);
 				}
 			}
+			
+			table.peonPolimorf(tablero); // se actualiza tarde pues espera a la siguiente actualziacion de mostrar tablero, es por ello que deberiamos hacer que devulva un booleando de manera que si es true se ejecute una actualiacion trablero
+			
 			System.out.println(mostrarTablero);
 			statusReyNegro = table.busquedaRey(1);
 			if (statusReyNegro==false) break;
@@ -85,6 +88,8 @@ public class InterfaceComand {
 				}
 
 			}
+			
+			
 
 			boolean checkMoveNegra = false;
 			while (checkMoveNegra == false) {
@@ -104,9 +109,11 @@ public class InterfaceComand {
 				}
 			}
  
+			table.peonPolimorf(tablero);
 			System.out.println(mostrarTablero);
 			statusReyBlanco = table.busquedaRey(0);
 
+			table.muestreo();
 		}
 		System.out.println("Fin de la partida");
 
