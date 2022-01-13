@@ -99,17 +99,18 @@ public class Torre extends Piezas {
 	
 	public boolean ataque(Piezas selectionada,int x, int y,boolean[][] vacias){
 		boolean check = false;
-		boolean existobstaculos;
+		boolean existobstaculos = true;
 		
-		if(x != selectionada.getPosicionX()) {
+		if(x != selectionada.getPosicionX() && y == selectionada.getPosicionY()) {
 			if (x < selectionada.getPosicionX()) {
 				existobstaculos= obstaculos(selectionada, x+1, y, vacias);
 			}else existobstaculos= obstaculos(selectionada, x-1, y, vacias);
-		}else {
+		}else if(x == selectionada.getPosicionX() && y != selectionada.getPosicionY()) {
 			if (y < selectionada.getPosicionY()) {
 				existobstaculos= obstaculos(selectionada, x, y+1, vacias);
 			}else existobstaculos= obstaculos(selectionada, x, y-1, vacias);
 		}
+		
 		if (existobstaculos != true) check = true;
 		
 		//System.out.println("ataque = " +check);

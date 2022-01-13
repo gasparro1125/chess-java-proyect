@@ -75,7 +75,7 @@ public class Alfil extends Piezas {
 		if (obsta == 0)
 			check = false;
 
-		//System.out.println("obstaculos = " + check);
+		System.out.println("obstaculos = " + check);
 		return check;
 	}
 
@@ -113,34 +113,24 @@ public class Alfil extends Piezas {
 		else if (objective.getColor() != selectionada.getColor())
 			check = true;
 
-		//System.out.println("hay victima = " + check);
+		System.out.println("hay victima = " + check);
 		return check;
 
 	}
 
 	public boolean ataque(Piezas selectionada, int x, int y, boolean[][] vacias) {
 		boolean check = false;
-		boolean existobstaculos = false;
+		boolean existobstaculos = true;
 
-		if (x < selectionada.getPosicionX()) {
-			if (y > selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
-			} else if (y < selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
-			}
-
-		} else {
-			if (y > selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
-			} else if (y < selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
-			}
-
-		}
+		if (x < selectionada.getPosicionX() && y > selectionada.getPosicionY()) existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
+		else if (x < selectionada.getPosicionX() && y < selectionada.getPosicionY()) existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
+		else if(x > selectionada.getPosicionX() && y > selectionada.getPosicionY()) existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
+		else if (x > selectionada.getPosicionX() && y < selectionada.getPosicionY()) existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
+		else check=false;
 		
 		if (existobstaculos != true) check = true;
 		
-		//System.out.println("ataque = " + check);
+		System.out.println("ataque = " + check);
 		return check;
 
 	}

@@ -264,7 +264,7 @@ public class table {
 				System.out.printf("1 - Torre\n 2- Caballo \n 3-Alfil \n 4-Reina\n");
 				int respuesta = 0;
 				
-				while(respuesta!=1 || respuesta!=2 || respuesta !=3 || respuesta!=4) {
+				while(respuesta!=1 && respuesta!=2 && respuesta !=3 && respuesta!=4) {
 					System.out.print("¿Que eliges?: ");
 					respuesta=teclado.nextInt();
 				}
