@@ -302,7 +302,7 @@ public class table {
 					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
 							piezaEvolucionadoPiezas.getRepresentacion());
 				}
-				}
+			}
 		}
 		
 		//Peones negros
