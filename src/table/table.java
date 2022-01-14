@@ -1,4 +1,5 @@
 package table;
+
 import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import Piezas.MountPiezas;
@@ -8,7 +9,6 @@ import java.util.Scanner;
 
 public class table {
 
-	
 	static MountPiezas guardo = new MountPiezas();
 	static ArrayList<ArrayList<ArrayList<Piezas>>> piezas = guardo.mountPiezas();
 
@@ -230,8 +230,8 @@ public class table {
 
 	public static ArrayList<ArrayList<ArrayList<Piezas>>> checkStatus() {
 
-		ArrayList<ArrayList<ArrayList<Piezas>>>piecillas=piezas;
-		
+		ArrayList<ArrayList<ArrayList<Piezas>>> piecillas = piezas;
+
 		for (int i = 0; i < 2; i++) {
 			for (int j = 0; j < 6; j++) {
 				for (int z = 0; z < piecillas.get(i).get(j).size(); z++) {
@@ -240,22 +240,21 @@ public class table {
 		}
 		return piecillas;
 	}
-	
-	
-	
+
 	public static boolean busquedaRey(int i) {
-		
-		ArrayList<ArrayList<ArrayList<Piezas>>> piezas=checkStatus();
-		boolean rey=true;
-		if (piezas.get(i).get(5).size()==0) rey= false;
+
+		ArrayList<ArrayList<ArrayList<Piezas>>> piezas = checkStatus();
+		boolean rey = true;
+		if (piezas.get(i).get(5).size() == 0)
+			rey = false;
 		return rey;
-		
+
 	}
-	
-	public static void peonPolimorf( String[][] tablero) {
-		//Peones Blancos
-		for(int i = 0  ;i< piezas.get(0).get(0).size();i++) {
-			if(piezas.get(0).get(0).get(i).getPosicionX()==7) {
+
+	public static void peonPolimorf(String[][] tablero) {
+		// Peones Blancos
+		for (int i = 0; i < piezas.get(0).get(0).size(); i++) {
+			if (piezas.get(0).get(0).get(i).getPosicionX() == 7) {
 				int posx = piezas.get(0).get(0).get(i).getPosicionX();
 				int posy = piezas.get(0).get(0).get(i).getPosicionY();
 				piezas.get(0).get(0).remove(i);
@@ -263,66 +262,113 @@ public class table {
 				Scanner teclado = new Scanner(System.in);
 				System.out.printf("1 - Torre\n 2- Caballo \n 3-Alfil \n 4-Reina\n");
 				int respuesta = 0;
-				
-				while(respuesta!=1 && respuesta!=2 && respuesta !=3 && respuesta!=4) {
+
+				while (respuesta != 1 && respuesta != 2 && respuesta != 3 && respuesta != 4) {
 					System.out.print("¿Que eliges?: ");
-					respuesta=teclado.nextInt();
+					respuesta = teclado.nextInt();
 				}
 
 				if (respuesta == 1) {
 					Piezas piezaEvolucionadoPiezas = MountPiezas.torreBlanca();
 					piezaEvolucionadoPiezas.setPosicionX(posx);
 					piezaEvolucionadoPiezas.setPosicionY(posy);
-					
+
 					piezas.get(0).get(1).add(piezaEvolucionadoPiezas);
-					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
-							piezaEvolucionadoPiezas.getRepresentacion());
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas
+							.getPosicionY()] = representationShell(posx, posy,
+									piezaEvolucionadoPiezas.getRepresentacion());
 				} else if (respuesta == 2) {
 					Piezas piezaEvolucionadoPiezas = MountPiezas.caballoBlanco();
 					piezaEvolucionadoPiezas.setPosicionX(posx);
 					piezaEvolucionadoPiezas.setPosicionY(posy);
-					
-					piezas.get(0).get(2).add(piezaEvolucionadoPiezas);	
-					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
-							piezaEvolucionadoPiezas.getRepresentacion());
+
+					piezas.get(0).get(2).add(piezaEvolucionadoPiezas);
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas
+							.getPosicionY()] = representationShell(posx, posy,
+									piezaEvolucionadoPiezas.getRepresentacion());
 				} else if (respuesta == 3) {
 					Piezas piezaEvolucionadoPiezas = MountPiezas.alfilBlanco();
 					piezaEvolucionadoPiezas.setPosicionX(posx);
 					piezaEvolucionadoPiezas.setPosicionY(posy);
-					
+
 					piezas.get(0).get(3).add(piezaEvolucionadoPiezas);
-					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
-							piezaEvolucionadoPiezas.getRepresentacion());
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas
+							.getPosicionY()] = representationShell(posx, posy,
+									piezaEvolucionadoPiezas.getRepresentacion());
 				} else {
 					Piezas piezaEvolucionadoPiezas = MountPiezas.reinaBlanca();
 					piezaEvolucionadoPiezas.setPosicionX(posx);
 					piezaEvolucionadoPiezas.setPosicionY(posy);
-					
+
 					piezas.get(0).get(4).add(piezaEvolucionadoPiezas);
-					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas.getPosicionY()] = representationShell(posx, posy,
-							piezaEvolucionadoPiezas.getRepresentacion());
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas
+							.getPosicionY()] = representationShell(posx, posy,
+									piezaEvolucionadoPiezas.getRepresentacion());
 				}
 			}
 		}
-		
-		//Peones negros
-				for(int i = 0  ;i< piezas.get(1).get(0).size();i++) {
-					if(piezas.get(1).get(0).get(i).getPosicionX()==0) System.out.println("podemos evolucionar los negros");
+
+		// Peones negros
+		for (int i = 0; i < piezas.get(1).get(0).size(); i++) {
+			if (piezas.get(1).get(0).get(i).getPosicionX() == 0) {
+				int posx = piezas.get(1).get(0).get(i).getPosicionX();
+				int posy = piezas.get(1).get(0).get(i).getPosicionY();
+				piezas.get(1).get(0).remove(i);
+				System.out.println("podemos evolucionar el peon negro a:");
+				Scanner teclado = new Scanner(System.in);
+				System.out.printf("1 - Torre\n 2- Caballo \n 3-Alfil \n 4-Reina\n");
+				int respuesta = 0;
+
+				while (respuesta != 1 && respuesta != 2 && respuesta != 3 && respuesta != 4) {
+					System.out.print("¿Que eliges?: ");
+					respuesta = teclado.nextInt();
 				}
-	}
-	
-	/*
-	public static void muestreo() {
-		for (int i = 0; i < 2; i++) {
-			for (int j = 0; j < 6; j++) {
-				for (int z = 0; z < piezas.get(i).get(j).size(); z++) {
-					System.out.println(piezas.get(i).get(j).get(z));
-				}
+
+				if (respuesta == 1) {
+					Piezas piezaEvolucionadoPiezas = MountPiezas.torreNegra();
+					piezaEvolucionadoPiezas.setPosicionX(posx);
+					piezaEvolucionadoPiezas.setPosicionY(posy);
+
+					piezas.get(1).get(1).add(piezaEvolucionadoPiezas);
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas
+							.getPosicionY()] = representationShell(posx, posy,
+									piezaEvolucionadoPiezas.getRepresentacion());
+				} else if (respuesta == 2) {
+					Piezas piezaEvolucionadoPiezas = MountPiezas.caballoNegro();
+					piezaEvolucionadoPiezas.setPosicionX(posx);
+					piezaEvolucionadoPiezas.setPosicionY(posy);
+
+					piezas.get(1).get(2).add(piezaEvolucionadoPiezas);
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas
+							.getPosicionY()] = representationShell(posx, posy,
+									piezaEvolucionadoPiezas.getRepresentacion());
+				} else if (respuesta == 3) {
+					Piezas piezaEvolucionadoPiezas = MountPiezas.alfilNegro();
+					piezaEvolucionadoPiezas.setPosicionX(posx);
+					piezaEvolucionadoPiezas.setPosicionY(posy);
+
+					piezas.get(1).get(3).add(piezaEvolucionadoPiezas);
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas
+							.getPosicionY()] = representationShell(posx, posy,
+									piezaEvolucionadoPiezas.getRepresentacion());
+				} else {
+					Piezas piezaEvolucionadoPiezas = MountPiezas.reinaNegra();
+					piezaEvolucionadoPiezas.setPosicionX(posx);
+					piezaEvolucionadoPiezas.setPosicionY(posy);
+
+					piezas.get(1).get(4).add(piezaEvolucionadoPiezas);
+					tablero[piezaEvolucionadoPiezas.getPosicionX()][piezaEvolucionadoPiezas
+							.getPosicionY()] = representationShell(posx, posy,
+									piezaEvolucionadoPiezas.getRepresentacion());
 				}
 			}
+		}
 	}
-	*/
-	
+
+	/*
+	 * public static void muestreo() { for (int i = 0; i < 2; i++) { for (int j = 0;
+	 * j < 6; j++) { for (int z = 0; z < piezas.get(i).get(j).size(); z++) {
+	 * System.out.println(piezas.get(i).get(j).get(z)); } } } }
+	 */
+
 }
-
-
