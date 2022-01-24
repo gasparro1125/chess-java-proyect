@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MountPiezas {
 	
-	
+	//Creo cada pieza blanca
 	public static PeonBlanco peonBlanco(){
 		PeonBlanco PeonBlanco = new PeonBlanco("P","B");
 		return PeonBlanco;
@@ -37,6 +37,7 @@ public class MountPiezas {
 	
 //*************************************************************************
 	
+	//Creo cada pieza negra
 	public static PeonNegro peonNegro(){
 		PeonNegro PeonNegro = new PeonNegro("P","N");
 		return PeonNegro;
@@ -68,6 +69,8 @@ public class MountPiezas {
 	}
 	
 	//***********************************************************************************************
+	//Montamos un arrayList donde guardaremos cada pieza de cada color y tipo 
+	//y lo convertimos en un metodo para su futura utilizacion
 	public static ArrayList<ArrayList<ArrayList<Piezas>>> mountPiezas(){
 		ArrayList<ArrayList<ArrayList<Piezas>>> piezas  = new ArrayList<>(3);
 		
