@@ -1,32 +1,37 @@
 package table;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import Piezas.MountPiezas;
 import Piezas.Piezas;
 import java.util.Scanner;
 
+import javax.naming.AuthenticationException;
+
 public class table {
 
-	//Creo el arrayList de Piezas con el metodo mountPiezas y le asigno cada ubicacion a un tipo de pieza
+	// Creo el arrayList de Piezas con el metodo mountPiezas y le asigno cada
+	// ubicacion a un tipo de pieza
 	static MountPiezas guardo = new MountPiezas();
 	static ArrayList<ArrayList<ArrayList<Piezas>>> piezas = guardo.mountPiezas();
 
 	static ArrayList<Piezas> PeonBlanco = piezas.get(0).get(0);
 	static ArrayList<Piezas> TorreBlanca = piezas.get(0).get(1);
 	static ArrayList<Piezas> CaballoBlanco = piezas.get(0).get(2);
-	static ArrayList<Piezas> AlfilBlanco = piezas.get(0).get(3);							
-	static ArrayList<Piezas> ReinaBlanca = piezas.get(0).get(4);	
+	static ArrayList<Piezas> AlfilBlanco = piezas.get(0).get(3);
+	static ArrayList<Piezas> ReinaBlanca = piezas.get(0).get(4);
 	static ArrayList<Piezas> ReyBlanco = piezas.get(0).get(5);
 
 	static ArrayList<Piezas> PeonNegro = piezas.get(1).get(0);
 	static ArrayList<Piezas> TorreNegra = piezas.get(1).get(1);
-	static ArrayList<Piezas> CaballoNegro = piezas.get(1).get(2); 	// Crear cada pieza independiente
+	static ArrayList<Piezas> CaballoNegro = piezas.get(1).get(2); // Crear cada pieza independiente
 	static ArrayList<Piezas> AlfilNegro = piezas.get(1).get(3);
 	static ArrayList<Piezas> ReinaNegra = piezas.get(1).get(4);
 	static ArrayList<Piezas> ReyNegro = piezas.get(1).get(5);
 
-	
-	//Creamos un Array de las casillas
+	// Creamos un Array de las casillas
 	public static String[][] table() {
 		String[][] tablero = new String[8][8];
 		int casillas = 0;
@@ -55,8 +60,7 @@ public class table {
 		return tablero;
 	}
 
-	
-	//Numeramos cada posicion del tablero
+	// Numeramos cada posicion del tablero
 	public static String numberToTable(String[][] tablero) {
 		String linea = "       0    1    2    3    4     5    6    7\n";
 		for (int i = 0; i < 8; i++) {
@@ -71,17 +75,13 @@ public class table {
 		return linea;
 	}
 
-	
-	
-	//Metodo para represetnar una figura en cada casilla
+	// Metodo para represetnar una figura en cada casilla
 	public static String representationShell(int x, int y, String a) {
 		String[][] tablero = table();
 		return tablero[x][y] = tablero[x][y].substring(0, 1) + a + tablero[x][y].substring(3);
 	}
 
-	
-	
-	//Metodo para dibujar el ajedrez con cada pieza en su posicion base
+	// Metodo para dibujar el ajedrez con cada pieza en su posicion base
 	public static String[][] Begin() {
 		String[][] tablero = table();
 
@@ -174,8 +174,7 @@ public class table {
 		return tablero;
 	}
 
-	
-	//Metodo que me devuelve tru si la casilla esta vacia
+	// Metodo que me devuelve true si la casilla esta vacia
 	public static boolean[][] casillasVacias(String[][] table) {
 		String[][] tablero = table;
 		boolean[][] casillasVacias = new boolean[8][8];
@@ -191,8 +190,8 @@ public class table {
 		return casillasVacias;
 	}
 
-	
-	//Metodo mediante el cual elegimos la posicion de la pieza y nos la devuevle si se encuentra en esa cordenada
+	// Metodo mediante el cual elegimos la posicion de la pieza y nos la devuevle si
+	// se encuentra en esa cordenada
 	public static Piezas SelectPieza(int x, int y) {
 		Piezas check = null;
 		for (int i = 0; i < 2; i++) {
@@ -208,10 +207,9 @@ public class table {
 		return check;
 	}
 
-	
-	
-	//Metodo que mueve la pieza selecionada a la posicion indicada, pasando antes por los filtros de movimiento
-	//del tipo de pieza que sea
+	// Metodo que mueve la pieza selecionada a la posicion indicada, pasando antes
+	// por los filtros de movimiento
+	// del tipo de pieza que sea
 	public static String[][] movePieza(Piezas elegida, int x, int y, String[][] tablero) {
 
 		if (elegida.move(elegida, x, y, piezas, casillasVacias(tablero)) == true) {
@@ -245,9 +243,7 @@ public class table {
 		return tablero;
 	}
 
-	
-	
-	//Metodo para comprobar el estado de todas las piezas
+	// Metodo para comprobar el estado de todas las piezas
 	public static ArrayList<ArrayList<ArrayList<Piezas>>> checkStatus() {
 		ArrayList<ArrayList<ArrayList<Piezas>>> piecillas = piezas;
 
@@ -260,8 +256,7 @@ public class table {
 		return piecillas;
 	}
 
-	
-	//Nos indica si el rey blanco(0) o negro(1) esta vivo
+	// Nos indica si el rey blanco(0) o negro(1) esta vivo
 	public static boolean busquedaRey(int i) {
 		ArrayList<ArrayList<ArrayList<Piezas>>> piezas = checkStatus();
 		boolean rey = true;
@@ -271,7 +266,6 @@ public class table {
 
 	}
 
-	
 	// metodo que se ejecuta cuando el peon llega con vida al final tablero
 	public static void peonPolimorf(String[][] tablero) {
 		// Peones Blancos
@@ -385,6 +379,54 @@ public class table {
 				}
 			}
 		}
+	}
+
+	// Funcion Jaque
+	public static void Jaque(String color, String [][] tablero) {
+		boolean[][] posible = new boolean[8][8];
+		ArrayList<ArrayList<ArrayList<Piezas>>> piecillas = piezas;
+		
+		for (int i = 0; i < posible.length; i++) {
+			for (int j = 0; j < posible[i].length; j++) {
+				posible[i][j] = false;
+			}
+		}
+
+		if (color == "N") {
+			for (int j = 0; j < 6; j++) {
+				for (int z = 0; z < piecillas.get(0).get(j).size(); z++) {
+					//System.out.println(piecillas.get(0).get(j).get(z));
+					for (int k = 0; k < 8; k++) {
+						for (int l = 0; l < 8; l++) {
+							if (piecillas.get(0).get(j).get(z).move(piecillas.get(0).get(j).get(z), k, l, piezas, casillasVacias(tablero))==true) {
+								posible[k][l]=true;
+								System.out.println(piecillas.get(0).get(j).get(z)+" voy a ir x: "+k +" voy a ir y: "+l);
+							}
+						}
+					}
+				}
+			}
+		} else {
+			for (int j = 0; j < 6; j++) {
+				for (int z = 0; z < piecillas.get(1).get(j).size(); z++) {
+					for (int k = 0; k < 8; k++) {
+						for (int l = 0; l < 8; l++) {
+							if (piecillas.get(1).get(j).get(z).move(piecillas.get(1).get(j).get(z), k, l, piezas, casillasVacias(tablero))==true) {
+								posible[k][l]=true;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/*for (int i = 0; i < posible.length; i++) {
+			for (int j = 0; j < posible[i].length; j++) {
+				System.out.println("posiciones x,y: "+ i+" "+j+" es :"+ posible[i][j]);
+			}
+		}*/
+		
+		
 	}
 
 	/*

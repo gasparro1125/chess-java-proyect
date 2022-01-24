@@ -13,6 +13,7 @@ public class Reina extends Piezas {
 		ArrayList<Boolean> checks = new ArrayList<Boolean>();
 		boolean check = true;
 		int obsta = 0;
+		
 		if (selecionada.getPosicionX() == x || selecionada.getPosicionY() == y) {
 			if (selecionada.getPosicionX() != x) {
 

@@ -122,11 +122,21 @@ public class Alfil extends Piezas {
 		boolean check = false;
 		boolean existobstaculos = true;
 
-		if (x < selectionada.getPosicionX() && y > selectionada.getPosicionY()) existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
-		else if (x < selectionada.getPosicionX() && y < selectionada.getPosicionY()) existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
-		else if(x > selectionada.getPosicionX() && y > selectionada.getPosicionY()) existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
-		else if (x > selectionada.getPosicionX() && y < selectionada.getPosicionY()) existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
-		else check=false;
+		if (x < selectionada.getPosicionX()) {
+			if (y > selectionada.getPosicionY()) {
+				existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
+			} else if (y < selectionada.getPosicionY()) {
+				existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
+			}
+
+		} else {
+			if (y > selectionada.getPosicionY()) {
+				existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
+			} else if (y < selectionada.getPosicionY()) {
+				existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
+			}
+
+		}
 		
 		if (existobstaculos != true) check = true;
 		
