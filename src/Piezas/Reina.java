@@ -178,9 +178,9 @@ public class Reina extends Piezas {
 		} else {
 			if (x < selectionada.getPosicionX()) {
 				if (y > selectionada.getPosicionY()) {
-					existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
+					existobstaculos = obstaculos(selectionada, x + 1, y - 1, vacias);
 				} else if (y < selectionada.getPosicionY()) {
-					existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
+					existobstaculos = obstaculos(selectionada, x + 1, y + 1, vacias);
 				}
 
 			} else {

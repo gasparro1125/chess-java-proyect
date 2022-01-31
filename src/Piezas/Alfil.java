@@ -12,7 +12,8 @@ public class Alfil extends Piezas {
 		ArrayList<Boolean> checks = new ArrayList<Boolean>();
 		boolean check = true;
 		int obsta = 0;
-
+		
+		/*
 		if (x < selecionada.getPosicionX()) {
 			if (y > selecionada.getPosicionY()) {
 				for (int i = x; i < selecionada.getPosicionX(); i++) {
@@ -23,7 +24,7 @@ public class Alfil extends Piezas {
 							else {
 								checks.add(true);
 							}
-						}
+						}else checks.add(false);
 					}
 				}
 			} else if (y < selecionada.getPosicionY()) {
@@ -35,7 +36,7 @@ public class Alfil extends Piezas {
 							else {
 								checks.add(true);
 							}
-						}
+						}else checks.add(false);
 					}
 				}
 			}
@@ -61,7 +62,103 @@ public class Alfil extends Piezas {
 							else {
 								checks.add(true);
 							}
-						}
+						}else checks.add(false);
+					}
+				}
+			}
+		}*/
+		
+
+		if (selecionada.getPosicionX() == x || selecionada.getPosicionY() == y) {
+			if (selecionada.getPosicionX() != x) {
+
+				if (x < selecionada.getPosicionX()) {
+
+					for (int i = x; i < selecionada.getPosicionX(); i++) {
+						if (vacias[i][y] == true) {
+							checks.add(true);
+						} else
+							checks.add(true);
+
+					}
+				} else {
+					for (int i = x; selecionada.getPosicionX() < i; i--) {
+						if (vacias[i][y] == true) {
+							checks.add(true);
+						} else
+							checks.add(true);
+					}
+				}
+			} else {
+
+				if (y < selecionada.getPosicionY()) {
+
+					for (int i = y; i < selecionada.getPosicionY(); i++) {
+						if (vacias[x][i] == true) {
+							checks.add(true);
+						} else
+							checks.add(true);
+					}
+				} else {
+					for (int i = y; selecionada.getPosicionY() < i; i--) {
+						if (vacias[x][i] == true) {
+							checks.add(true);
+						} else
+							checks.add(true);
+					}
+				}
+			}
+		} else {
+			if (x < selecionada.getPosicionX()) {
+				if (y > selecionada.getPosicionY()) {
+					for (int i = x,  j = y ; i < selecionada.getPosicionX() && j > selecionada.getPosicionY(); i++,j--) {
+						//for (int j = y; j > selecionada.getPosicionY(); j--) {
+							if ((selecionada.getPosicionX() - i) == (j - selecionada.getPosicionY())) {
+								if (vacias[i][j] == true)
+									checks.add(false);
+								else {
+									checks.add(true);
+								}
+							//}
+						}else checks.add(true);
+					}
+				} else if (y < selecionada.getPosicionY()) {
+					for (int i = x, j=y; i < selecionada.getPosicionX() && j < selecionada.getPosicionY() ; i++,j++) {
+						//for (int j = y; j < selecionada.getPosicionY(); j++) {
+							if ((selecionada.getPosicionX() - i) == (selecionada.getPosicionY() - j)) {
+								if (vacias[i][j] == true)
+									checks.add(false);
+								else {
+									checks.add(true);
+								}
+							}else checks.add(true);
+						//}
+					}
+				}
+			} else if (x > selecionada.getPosicionX()) {
+				if (y > selecionada.getPosicionY()) {
+					for (int i = x ,  j=y; i > selecionada.getPosicionX() && j > selecionada.getPosicionY(); i--,j--) {
+						//for (int j = y; j > selecionada.getPosicionY(); j--) {
+							if ((i - selecionada.getPosicionX()) == (j - selecionada.getPosicionY())) {
+								if (vacias[i][j] == true)
+									checks.add(false);
+								else {
+									checks.add(true);
+								}
+							}else checks.add(true);
+						//}
+					}
+				} else if (y < selecionada.getPosicionY()) {
+					for (int i = x, j=y; i > selecionada.getPosicionX() && j < selecionada.getPosicionY(); i--,j++) {
+						//for (int j = y; j < selecionada.getPosicionY(); j++) {
+							if ((i - selecionada.getPosicionX()) == (selecionada.getPosicionY() - j)) {
+								if (vacias[i][j] == true)
+									checks.add(false);
+								else {
+									checks.add(true);
+								}
+							}else checks.add(true);
+						//}
 					}
 				}
 			}
@@ -124,9 +221,9 @@ public class Alfil extends Piezas {
 
 		if (x < selectionada.getPosicionX()) {
 			if (y > selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
+				existobstaculos = obstaculos(selectionada, x + 1, y - 1, vacias);
 			} else if (y < selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
+				existobstaculos = obstaculos(selectionada, x + 1, y + 1, vacias);
 			}
 
 		} else {
@@ -164,24 +261,32 @@ public class Alfil extends Piezas {
 			
 			else if (isNotFriend(selectionada, x, y, piezas) == true && ataque==false) {
 				if (obstaculos(selectionada, x, y, vacias) == false) {
-					if (x < selectionada.getPosicionX()) {
-						if (y > selectionada.getPosicionY()) {
-							if ((selectionada.getPosicionX() - x) == (y - selectionada.getPosicionY())) {
-								return check = true;
+					
+					
+					if (selectionada.getPosicionX() == x || selectionada.getPosicionY() == y) {
+						check = false;
+					}
+
+					else if (selectionada.getPosicionX() != x && selectionada.getPosicionY() != y) {
+						if (x < selectionada.getPosicionX()) {
+							if (y > selectionada.getPosicionY()) {
+								if ((selectionada.getPosicionX() - x) == (y - selectionada.getPosicionY())) {
+									return check = true;
+								}
+							} else if (y < selectionada.getPosicionY()) {
+								if ((selectionada.getPosicionX() - x) == (selectionada.getPosicionY() - y)) {
+									return check = true;
+								}
 							}
-						} else if (y < selectionada.getPosicionY()) {
-							if ((selectionada.getPosicionX() - x) == (selectionada.getPosicionY() - y)) {
-								return check = true;
-							}
-						}
-					} else if (x > selectionada.getPosicionX()) {
-						if (y > selectionada.getPosicionY()) {
-							if ((x - selectionada.getPosicionX()) == (y - selectionada.getPosicionY())) {
-								return check = true;
-							}
-						} else if (y < selectionada.getPosicionY()) {
-							if ((x - selectionada.getPosicionX()) == (selectionada.getPosicionY() - y)) {
-								return check = true;
+						} else if (x > selectionada.getPosicionX()) {
+							if (y > selectionada.getPosicionY()) {
+								if ((x - selectionada.getPosicionX()) == (y - selectionada.getPosicionY())) {
+									return check = true;
+								}
+							} else if (y < selectionada.getPosicionY()) {
+								if ((x - selectionada.getPosicionX()) == (selectionada.getPosicionY() - y)) {
+									return check = true;
+								}
 							}
 						}
 					}
@@ -189,6 +294,7 @@ public class Alfil extends Piezas {
 			} else
 				return check;
 		}
+		//System.out.println(check);
 		return check;
 	}
 
