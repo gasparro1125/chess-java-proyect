@@ -441,8 +441,15 @@ public class table {
 			}
 		}*/
 		
-		if (jaqueBlanca==true) System.out.println("Atento!!!! el rey blanco  esta en jaque !!!!");
-		else if(jaqueNegra== true) System.out.println("Atento!!!! el rey negro  esta en jaque !!!!");
+		if (jaqueBlanca==true) {
+			System.out.println("Atento!!!! el rey blanco  esta en jaque !!!!");
+			System.out.println("Jugador blanco, escribe 10 para asumir la derrota por Jaque Mate");
+		}
+		else if(jaqueNegra== true) {
+			System.out.println("Atento!!!! el rey negro  esta en jaque !!!!");
+			System.out.println("Jugador negro, escribe 10 para asumir la derrota por Jaque Mate");
+		}
+		
 		
 		return check;
 		
