@@ -1,5 +1,6 @@
 package table;
 
+import java.io.ObjectInputFilter.Status;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -381,14 +382,15 @@ public class table {
 		}
 	}
 
-	// Funcion Jaque, introducimos el color del rey que queremos comprobar si estra en jaque
-	public static boolean Jaque(String color, String [][] tablero) {
+	// Funcion Jaque, introducimos el color del rey que queremos comprobar si estra
+	// en jaque
+	public static boolean Jaque(String color, String[][] tablero) {
 		boolean jaqueBlanca = false;
 		boolean jaqueNegra = false;
 		boolean check = false;
 		boolean[][] posible = new boolean[8][8];
 		ArrayList<ArrayList<ArrayList<Piezas>>> piecillas = piezas;
-		
+
 		for (int i = 0; i < posible.length; i++) {
 			for (int j = 0; j < posible[i].length; j++) {
 				posible[i][j] = false;
@@ -398,207 +400,210 @@ public class table {
 		if (color == "N") {
 			for (int j = 0; j < 6; j++) {
 				for (int z = 0; z < piecillas.get(0).get(j).size(); z++) {
-					//System.out.println(piecillas.get(0).get(j).get(z));
+					// System.out.println(piecillas.get(0).get(j).get(z));
 					for (int k = 0; k < 8; k++) {
 						for (int l = 0; l < 8; l++) {
-							if (piecillas.get(0).get(j).get(z).move(piecillas.get(0).get(j).get(z), k, l, piezas, casillasVacias(tablero))==true) {
-								posible[k][l]=true;
-								//System.out.println(piecillas.get(0).get(j).get(z)+" voy a ir x: "+k +" voy a ir y: "+l);
+							if (piecillas.get(0).get(j).get(z).move(piecillas.get(0).get(j).get(z), k, l, piezas,
+									casillasVacias(tablero)) == true) {
+								posible[k][l] = true;
+								// System.out.println(piecillas.get(0).get(j).get(z)+" voy a ir x: "+k +" voy a
+								// ir y: "+l);
 							}
 						}
 					}
 				}
 			}
-			
-			if(posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(0).getPosicionY()]) {
-				check=true;
-				jaqueNegra= true;
+
+			if (posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(0).getPosicionY()]) {
+				check = true;
+				jaqueNegra = true;
 			}
-			
+
 		} else {
 			for (int j = 0; j < 6; j++) {
 				for (int z = 0; z < piecillas.get(1).get(j).size(); z++) {
 					for (int k = 0; k < 8; k++) {
 						for (int l = 0; l < 8; l++) {
-							if (piecillas.get(1).get(j).get(z).move(piecillas.get(1).get(j).get(z), k, l, piezas, casillasVacias(tablero))==true) {
-								posible[k][l]=true;
-								//System.out.println(piecillas.get(1).get(j).get(z)+" voy a ir x: "+k +" voy a ir y: "+l);
+							if (piecillas.get(1).get(j).get(z).move(piecillas.get(1).get(j).get(z), k, l, piezas,
+									casillasVacias(tablero)) == true) {
+								posible[k][l] = true;
+								// System.out.println(piecillas.get(1).get(j).get(z)+" voy a ir x: "+k +" voy a
+								// ir y: "+l);
 							}
 						}
 					}
 				}
 			}
-			
-			if(posible[piezas.get(0).get(5).get(0).getPosicionX()][piezas.get(0).get(5).get(0).getPosicionY()]) {
-				check=true;
-				jaqueBlanca=true;
+
+			if (posible[piezas.get(0).get(5).get(0).getPosicionX()][piezas.get(0).get(5).get(0).getPosicionY()]) {
+				check = true;
+				jaqueBlanca = true;
 			}
 		}
-		
-		/*for (int i = 0; i < posible.length; i++) {
-			for (int j = 0; j < posible[i].length; j++) {
-				System.out.println("posiciones x,y: "+ i+" "+j+" es :"+ posible[i][j]);
-			}
-		}*/
-		
-		if (jaqueBlanca==true) {
+
+		/*
+		 * for (int i = 0; i < posible.length; i++) { for (int j = 0; j <
+		 * posible[i].length; j++) { System.out.println("posiciones x,y: "+
+		 * i+" "+j+" es :"+ posible[i][j]); } }
+		 */
+
+		if (jaqueBlanca == true) {
 			System.out.println("Atento!!!! el rey blanco  esta en jaque !!!!");
-			System.out.println("Jugador blanco, escribe 10 para asumir la derrota por Jaque Mate");
+			System.out.println("Jugador blanco, escribe 0 para asumir la derrota por Jaque Mate o 1 para continuar la partida:");
+			Scanner teclado = new Scanner(System.in);
+			int respuesta = teclado.nextInt();
+			if (respuesta == 1) System.out.println("La partida continua...");
+			else if (respuesta == 0) {
+				System.out.println("El jugador negro ha ganado!");
+				piezas.get(0).get(5).remove(0);
+			}
 		}
-		else if(jaqueNegra== true) {
+
+		else if (jaqueNegra == true) {
+			Boolean jaquemate=false;
 			System.out.println("Atento!!!! el rey negro  esta en jaque !!!!");
-			System.out.println("Jugador negro, escribe 10 para asumir la derrota por Jaque Mate");
+			System.out.println("Jugador negro, escribe 0 para asumir la derrota por Jaque Mate o 1 para continuar la partida:");
+			Scanner teclado = new Scanner(System.in);
+			int respuesta2 = teclado.nextInt();
+			if (respuesta2 == 1) System.out.println("La partida continua...");
+			else if (respuesta2 == 0) {
+				System.out.println("El jugador blanco ha ganado!");
+				piezas.get(1).get(5).remove(0);
+				return jaquemate=true;
+			}
 		}
-		
-		
+
 		return check;
-		
+
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+
 	/*
-	public static boolean mate(String color, String [][] tablero) {
-		boolean mateBlanca = false;
-		boolean mateNegra = false;
-		boolean check = false;
-	
-		
-		boolean[][] posible = new boolean[8][8];
-		boolean[][] posibleRey = new boolean [8][8]; 
-		ArrayList<Boolean> finalsituation = new ArrayList<>(); // si solo hay true en los posible smovimientos del rey es jaque mate
-		
-		ArrayList<ArrayList<ArrayList<Piezas>>> piecillas = piezas;
-		
-		for (int i = 0; i < posible.length; i++) {
-			for (int j = 0; j < posible[i].length; j++) {
-				posible[i][j] = false;
-			}
-		}
-
-		if (color == "N") {
-			int cont = 0;
-			
-			for (int j = 0; j < 6; j++) {
-				for (int z = 0; z < piecillas.get(0).get(j).size(); z++) {
-					//System.out.println(piecillas.get(0).get(j).get(z));
-					for (int k = 0; k < 8; k++) {
-						for (int l = 0; l < 8; l++) {
-							if (piecillas.get(0).get(j).get(z).move(piecillas.get(0).get(j).get(z), k, l, piezas, casillasVacias(tablero))==true) {
-								posible[k][l]=true;
-								//System.out.println(piecillas.get(0).get(j).get(z)+" voy a ir x: "+k +" voy a ir y: "+l);
-							}
-						}
-					}
-				}
-			}
-			
-			
-			//solo haga  movimientos del rey del rey, es decir deberiamos guardar un array con los unicos movimientos posibles de el rey y comprobarlos
-			//una vez tengamos dichas cordenadas de movimientos posibles del rey, realizamos la comparacion
-			String[][] tableroJaque = table();
-			tableroJaque[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(0).getPosicionY()] = representationShell(piezas.get(1).get(5).get(0).getPosicionX(),piezas.get(1).get(5).get(0).getPosicionY(), piezas.get(1).get(5).get(0).getRepresentacion());
-			
-			//aqui deberia comprobar las coordenas del rey en este neuvo tablero y guardar todo las cordanas posibles
-			ArrayList<Integer> posiblesCordenadasX = new ArrayList<>();
-			ArrayList<Integer> posiblesCordenadasY = new ArrayList<>();
-			
-			for (int k = 0; k < 8; k++) {
-				for (int l = 0; l < 8; l++) {
-					if(piezas.get(1).get(5).get(0).move(piezas.get(1).get(5).get(0), k, l, piezas, casillasVacias(tablero))==true) posibleRey[k][l]= true;
-					else posibleRey[k][l] = false;
-					
-				}
-			}
-			
-			
-			
-			for (int t = 0; t < 8; t++) {
-				for (int z = 0; t < 8; t++) {
-					
-					if(posible[t][z]==true && posibleRey[t][z]==true && posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(0).getPosicionY()]==true) finalsituation.add(true);
-					else if(posible[t][z]==true && posibleRey[t][z]==false && posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(0).getPosicionY()]==true) finalsituation.add(true);
-					else if(posible[t][z]==true && posibleRey[t][z]==false && posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(0).getPosicionY()]==false) finalsituation.add(false);
-					else if(posible[t][z]==false && posibleRey[t][z]==true && posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(0).getPosicionY()]==true) finalsituation.add(false);
-					else if(posible[t][z]==false && posibleRey[t][z]==true && posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(0).getPosicionY()]==false) finalsituation.add(false);
-					else if(posible[t][z]==false && posibleRey[t][z]==false && posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(0).getPosicionY()]==true) finalsituation.add(true);
-					else if(posible[t][z]==false && posibleRey[t][z]==false && posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(0).getPosicionY()]==false) finalsituation.add(false);
-				}
-			}
-			
-			
-			
-			for (Boolean boolean1 : finalsituation) {
-				if (boolean1 == true)
-					cont++;
-			}
-			
-			if(cont == 0) mateNegra= false;
-			else mateNegra= true;
-			
-			
-		} else {
-			int cont = 0;
-			
-			for (int j = 0; j < 6; j++) {
-				for (int z = 0; z < piecillas.get(1).get(j).size(); z++) {
-					for (int k = 0; k < 8; k++) {
-						for (int l = 0; l < 8; l++) {
-							if (piecillas.get(1).get(j).get(z).move(piecillas.get(1).get(j).get(z), k, l, piezas, casillasVacias(tablero))==true) {
-								posible[k][l]=true;
-								//System.out.println(piecillas.get(1).get(j).get(z)+" voy a ir x: "+k +" voy a ir y: "+l);
-							}
-						}
-					}
-				}
-			}
-			
-			for (int k = 0; k < 8; k++) {
-				for (int l = 0; l < 8; l++) {
-					if(piezas.get(0).get(5).get(0).move(piezas.get(0).get(5).get(0), k, l, piezas, casillasVacias(tablero))==true) posibleRey[k][l]= true;
-					else posibleRey[k][l] = false;
-					
-				}
-			}
-			
-			for (int t = 0; t < 8; t++) {
-				for (int z = 0; t < 8; t++) {
-					
-					if(posible[t][z]==true && posibleRey[t][z]==true) finalsituation.add(true);
-					else if(posible[t][z]==true && posibleRey[t][z]==false) finalsituation.add(false);
-					else if(posible[t][z]==false && posibleRey[t][z]==true) finalsituation.add(false);
-					else if(posible[t][z]==false && posibleRey[t][z]==false) finalsituation.add(false);
-					else if(posible[t][z]==true && t==piezas.get(0).get(5).get(0).getPosicionX() && z== piezas.get(0).get(5).get(0).getPosicionY()) finalsituation.add(true);
-				}
-			}
-			
-			for (Boolean boolean1 : finalsituation) {
-				if (boolean1 == true)
-					cont++;
-			}
-			
-			if(cont == 0) mateBlanca= false;
-			else mateBlanca= true;
-		}
-			
-		/*for (int i = 0; i < posible.length; i++) {
-			for (int j = 0; j < posible[i].length; j++) {
-				System.out.println("posiciones x,y: "+ i+" "+j+" es :"+ posible[i][j]);
-			}
-		}//*
-		
-		if (mateBlanca==true) {
-			check = mateBlanca;
-			System.out.println("Fin del juego, Jaque Mate al rey Blanco");
-		}
-		else if(mateNegra== true) {
-			check = mateNegra;
-			System.out.println("Fin del juego, Jaque Mate al rey Nengro");
-		}
-		
-		return check;
-
-	}
-	*/
+	 * public static boolean mate(String color, String [][] tablero) { boolean
+	 * mateBlanca = false; boolean mateNegra = false; boolean check = false;
+	 * 
+	 * 
+	 * boolean[][] posible = new boolean[8][8]; boolean[][] posibleRey = new boolean
+	 * [8][8]; ArrayList<Boolean> finalsituation = new ArrayList<>(); // si solo hay
+	 * true en los posible smovimientos del rey es jaque mate
+	 * 
+	 * ArrayList<ArrayList<ArrayList<Piezas>>> piecillas = piezas;
+	 * 
+	 * for (int i = 0; i < posible.length; i++) { for (int j = 0; j <
+	 * posible[i].length; j++) { posible[i][j] = false; } }
+	 * 
+	 * if (color == "N") { int cont = 0;
+	 * 
+	 * for (int j = 0; j < 6; j++) { for (int z = 0; z <
+	 * piecillas.get(0).get(j).size(); z++) {
+	 * //System.out.println(piecillas.get(0).get(j).get(z)); for (int k = 0; k < 8;
+	 * k++) { for (int l = 0; l < 8; l++) { if
+	 * (piecillas.get(0).get(j).get(z).move(piecillas.get(0).get(j).get(z), k, l,
+	 * piezas, casillasVacias(tablero))==true) { posible[k][l]=true;
+	 * //System.out.println(piecillas.get(0).get(j).get(z)+" voy a ir x: "+k
+	 * +" voy a ir y: "+l); } } } } }
+	 * 
+	 * 
+	 * //solo haga movimientos del rey del rey, es decir deberiamos guardar un array
+	 * con los unicos movimientos posibles de el rey y comprobarlos //una vez
+	 * tengamos dichas cordenadas de movimientos posibles del rey, realizamos la
+	 * comparacion String[][] tableroJaque = table();
+	 * tableroJaque[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5)
+	 * .get(0).getPosicionY()] =
+	 * representationShell(piezas.get(1).get(5).get(0).getPosicionX(),piezas.get(1).
+	 * get(5).get(0).getPosicionY(),
+	 * piezas.get(1).get(5).get(0).getRepresentacion());
+	 * 
+	 * //aqui deberia comprobar las coordenas del rey en este neuvo tablero y
+	 * guardar todo las cordanas posibles ArrayList<Integer> posiblesCordenadasX =
+	 * new ArrayList<>(); ArrayList<Integer> posiblesCordenadasY = new
+	 * ArrayList<>();
+	 * 
+	 * for (int k = 0; k < 8; k++) { for (int l = 0; l < 8; l++) {
+	 * if(piezas.get(1).get(5).get(0).move(piezas.get(1).get(5).get(0), k, l,
+	 * piezas, casillasVacias(tablero))==true) posibleRey[k][l]= true; else
+	 * posibleRey[k][l] = false;
+	 * 
+	 * } }
+	 * 
+	 * 
+	 * 
+	 * for (int t = 0; t < 8; t++) { for (int z = 0; t < 8; t++) {
+	 * 
+	 * if(posible[t][z]==true && posibleRey[t][z]==true &&
+	 * posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(
+	 * 0).getPosicionY()]==true) finalsituation.add(true); else
+	 * if(posible[t][z]==true && posibleRey[t][z]==false &&
+	 * posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(
+	 * 0).getPosicionY()]==true) finalsituation.add(true); else
+	 * if(posible[t][z]==true && posibleRey[t][z]==false &&
+	 * posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(
+	 * 0).getPosicionY()]==false) finalsituation.add(false); else
+	 * if(posible[t][z]==false && posibleRey[t][z]==true &&
+	 * posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(
+	 * 0).getPosicionY()]==true) finalsituation.add(false); else
+	 * if(posible[t][z]==false && posibleRey[t][z]==true &&
+	 * posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(
+	 * 0).getPosicionY()]==false) finalsituation.add(false); else
+	 * if(posible[t][z]==false && posibleRey[t][z]==false &&
+	 * posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(
+	 * 0).getPosicionY()]==true) finalsituation.add(true); else
+	 * if(posible[t][z]==false && posibleRey[t][z]==false &&
+	 * posible[piezas.get(1).get(5).get(0).getPosicionX()][piezas.get(1).get(5).get(
+	 * 0).getPosicionY()]==false) finalsituation.add(false); } }
+	 * 
+	 * 
+	 * 
+	 * for (Boolean boolean1 : finalsituation) { if (boolean1 == true) cont++; }
+	 * 
+	 * if(cont == 0) mateNegra= false; else mateNegra= true;
+	 * 
+	 * 
+	 * } else { int cont = 0;
+	 * 
+	 * for (int j = 0; j < 6; j++) { for (int z = 0; z <
+	 * piecillas.get(1).get(j).size(); z++) { for (int k = 0; k < 8; k++) { for (int
+	 * l = 0; l < 8; l++) { if
+	 * (piecillas.get(1).get(j).get(z).move(piecillas.get(1).get(j).get(z), k, l,
+	 * piezas, casillasVacias(tablero))==true) { posible[k][l]=true;
+	 * //System.out.println(piecillas.get(1).get(j).get(z)+" voy a ir x: "+k
+	 * +" voy a ir y: "+l); } } } } }
+	 * 
+	 * for (int k = 0; k < 8; k++) { for (int l = 0; l < 8; l++) {
+	 * if(piezas.get(0).get(5).get(0).move(piezas.get(0).get(5).get(0), k, l,
+	 * piezas, casillasVacias(tablero))==true) posibleRey[k][l]= true; else
+	 * posibleRey[k][l] = false;
+	 * 
+	 * } }
+	 * 
+	 * for (int t = 0; t < 8; t++) { for (int z = 0; t < 8; t++) {
+	 * 
+	 * if(posible[t][z]==true && posibleRey[t][z]==true) finalsituation.add(true);
+	 * else if(posible[t][z]==true && posibleRey[t][z]==false)
+	 * finalsituation.add(false); else if(posible[t][z]==false &&
+	 * posibleRey[t][z]==true) finalsituation.add(false); else
+	 * if(posible[t][z]==false && posibleRey[t][z]==false)
+	 * finalsituation.add(false); else if(posible[t][z]==true &&
+	 * t==piezas.get(0).get(5).get(0).getPosicionX() && z==
+	 * piezas.get(0).get(5).get(0).getPosicionY()) finalsituation.add(true); } }
+	 * 
+	 * for (Boolean boolean1 : finalsituation) { if (boolean1 == true) cont++; }
+	 * 
+	 * if(cont == 0) mateBlanca= false; else mateBlanca= true; }
+	 * 
+	 * /*for (int i = 0; i < posible.length; i++) { for (int j = 0; j <
+	 * posible[i].length; j++) { System.out.println("posiciones x,y: "+
+	 * i+" "+j+" es :"+ posible[i][j]); } }//*
+	 * 
+	 * if (mateBlanca==true) { check = mateBlanca;
+	 * System.out.println("Fin del juego, Jaque Mate al rey Blanco"); } else
+	 * if(mateNegra== true) { check = mateNegra;
+	 * System.out.println("Fin del juego, Jaque Mate al rey Nengro"); }
+	 * 
+	 * return check;
+	 * 
+	 * }
+	 */
 
 	/*
 	 * public static void muestreo() { for (int i = 0; i < 2; i++) { for (int j = 0;

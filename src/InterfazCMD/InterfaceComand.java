@@ -322,6 +322,7 @@ public class InterfaceComand {
 			table.Jaque("B", tablero);
 
 			statusReyBlanco = table.busquedaRey(0);
+			
 
 			// table.muestreo();
 		}
