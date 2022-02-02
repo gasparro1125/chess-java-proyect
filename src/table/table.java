@@ -460,7 +460,7 @@ public class table {
 		}
 
 		else if (jaqueNegra == true) {
-			Boolean jaquemate=false;
+			//Boolean jaquemate=false;
 			System.out.println("Atento!!!! el rey negro  esta en jaque !!!!");
 			System.out.println("Jugador negro, escribe 0 para asumir la derrota por Jaque Mate o 1 para continuar la partida:");
 			Scanner teclado = new Scanner(System.in);
@@ -469,7 +469,7 @@ public class table {
 			else if (respuesta2 == 0) {
 				System.out.println("El jugador blanco ha ganado!");
 				piezas.get(1).get(5).remove(0);
-				return jaquemate=true;
+				//return jaquemate=true;
 			}
 		}
 
