@@ -2,7 +2,6 @@ package Piezas;
 
 import java.util.ArrayList;
 
-import javax.xml.stream.XMLStreamException;
 
 public class Reina extends Piezas {
 	public Reina(String pieza, String color) {
@@ -15,7 +14,7 @@ public class Reina extends Piezas {
 		int obsta = 0;
 		
 		if (selecionada.getPosicionX() == x || selecionada.getPosicionY() == y) {
-			if (selecionada.getPosicionX() != x) {
+			if (selecionada.getPosicionX() != x &&  selecionada.getPosicionY() == y) {
 
 				if (x < selecionada.getPosicionX()) {
 
@@ -34,7 +33,7 @@ public class Reina extends Piezas {
 							checks.add(true);
 					}
 				}
-			} else {
+			} else if(selecionada.getPosicionX() == x &&  selecionada.getPosicionY() != y)  {
 
 				if (y < selecionada.getPosicionY()) {
 
@@ -56,54 +55,54 @@ public class Reina extends Piezas {
 		} else {
 			if (x < selecionada.getPosicionX()) {
 				if (y > selecionada.getPosicionY()) {
-					for (int i = x; i < selecionada.getPosicionX(); i++) {
-						for (int j = y; j > selecionada.getPosicionY(); j--) {
+					for (int i = x,  j = y ; i < selecionada.getPosicionX() && j > selecionada.getPosicionY(); i++,j--) {
+						//for (int j = y; j > selecionada.getPosicionY(); j--) {
 							if ((selecionada.getPosicionX() - i) == (j - selecionada.getPosicionY())) {
 								if (vacias[i][j] == true)
 									checks.add(false);
 								else {
 									checks.add(true);
 								}
-							}
-						}
+							//}
+						}else checks.add(true);
 					}
 				} else if (y < selecionada.getPosicionY()) {
-					for (int i = x; i < selecionada.getPosicionX(); i++) {
-						for (int j = y; j < selecionada.getPosicionY(); j++) {
+					for (int i = x, j=y; i < selecionada.getPosicionX() && j < selecionada.getPosicionY() ; i++,j++) {
+						//for (int j = y; j < selecionada.getPosicionY(); j++) {
 							if ((selecionada.getPosicionX() - i) == (selecionada.getPosicionY() - j)) {
 								if (vacias[i][j] == true)
 									checks.add(false);
 								else {
 									checks.add(true);
 								}
-							}
-						}
+							}else checks.add(true);
+						//}
 					}
 				}
 			} else if (x > selecionada.getPosicionX()) {
 				if (y > selecionada.getPosicionY()) {
-					for (int i = x; i > selecionada.getPosicionX(); i--) {
-						for (int j = y; j > selecionada.getPosicionY(); j--) {
+					for (int i = x ,  j=y; i > selecionada.getPosicionX() && j > selecionada.getPosicionY(); i--,j--) {
+						//for (int j = y; j > selecionada.getPosicionY(); j--) {
 							if ((i - selecionada.getPosicionX()) == (j - selecionada.getPosicionY())) {
 								if (vacias[i][j] == true)
 									checks.add(false);
 								else {
 									checks.add(true);
 								}
-							}
-						}
+							}else checks.add(true);
+						//}
 					}
 				} else if (y < selecionada.getPosicionY()) {
-					for (int i = x; i > selecionada.getPosicionX(); i--) {
-						for (int j = y; j < selecionada.getPosicionY(); j++) {
+					for (int i = x, j=y; i > selecionada.getPosicionX() && j < selecionada.getPosicionY(); i--,j++) {
+						//for (int j = y; j < selecionada.getPosicionY(); j++) {
 							if ((i - selecionada.getPosicionX()) == (selecionada.getPosicionY() - j)) {
 								if (vacias[i][j] == true)
 									checks.add(false);
 								else {
 									checks.add(true);
 								}
-							}
-						}
+							}else checks.add(true);
+						//}
 					}
 				}
 			}
@@ -192,9 +191,9 @@ public class Reina extends Piezas {
 
 			}
 		}
-		if (existobstaculos != true)
-			check = true;
-
+		if (existobstaculos != true)check = true;
+		else check = false;
+		
 		//System.out.println("ataque = " + check);
 		return check;
 
@@ -214,8 +213,9 @@ public class Reina extends Piezas {
 		boolean ataque = ataqueReina(selectionada, x, y, piezas, vacias);
 
 		if (x <= 7 && x >= 0 && y <= 7 && y >= 0) {
-			if (isNotFriend(selectionada, x, y, piezas) == true && ataque == true)
+			if (isNotFriend(selectionada, x, y, piezas) == true && ataque == true) {
 				check = true;
+			}
 			else if (isNotFriend(selectionada, x, y, piezas) == true && ataque == false) {
 				if (obstaculos(selectionada, x, y, vacias) == false) {
 					if (selectionada.getPosicionX() == x || selectionada.getPosicionY() == y) {

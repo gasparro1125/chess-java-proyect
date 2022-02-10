@@ -218,25 +218,38 @@ public class Alfil extends Piezas {
 	public boolean ataque(Piezas selectionada, int x, int y, boolean[][] vacias) {
 		boolean check = false;
 		boolean existobstaculos = true;
-
-		if (x < selectionada.getPosicionX()) {
-			if (y > selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x + 1, y - 1, vacias);
-			} else if (y < selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x + 1, y + 1, vacias);
+		
+		if (selectionada.getPosicionX() == x || selectionada.getPosicionY() == y) {
+			if (x != selectionada.getPosicionX()) {
+				if (x < selectionada.getPosicionX()) {
+					existobstaculos = true;
+				} else
+					existobstaculos = true;
+			} else {
+				if (y < selectionada.getPosicionY()) {
+					existobstaculos = true;
+				} else
+					existobstaculos = true;
 			}
-
 		} else {
-			if (y > selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
-			} else if (y < selectionada.getPosicionY()) {
-				existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
-			}
+			if (x < selectionada.getPosicionX()) {
+				if (y > selectionada.getPosicionY()) {
+					existobstaculos = obstaculos(selectionada, x + 1, y - 1, vacias);
+				} else if (y < selectionada.getPosicionY()) {
+					existobstaculos = obstaculos(selectionada, x + 1, y + 1, vacias);
+				}
 
+			} else {
+				if (y > selectionada.getPosicionY()) {
+					existobstaculos = obstaculos(selectionada, x - 1, y - 1, vacias);
+				} else if (y < selectionada.getPosicionY()) {
+					existobstaculos = obstaculos(selectionada, x - 1, y + 1, vacias);
+				}
+
+			}
 		}
-		
-		if (existobstaculos != true) check = true;
-		
+		if (existobstaculos != true)check = true;
+		else check=false;
 		//System.out.println("ataque = " + check);
 		return check;
 
@@ -256,7 +269,9 @@ public class Alfil extends Piezas {
 		
 		if (x <= 7 && x >= 0 && y <= 7 && y >= 0) {
 			
-			if( isNotFriend(selectionada, x, y, piezas)==true && ataque==true ) check =true;
+			if( isNotFriend(selectionada, x, y, piezas)==true && ataque==true ) {
+				check =true;
+			}
 			
 			
 			else if (isNotFriend(selectionada, x, y, piezas) == true && ataque==false) {
@@ -265,9 +280,7 @@ public class Alfil extends Piezas {
 					
 					if (selectionada.getPosicionX() == x || selectionada.getPosicionY() == y) {
 						check = false;
-					}
-
-					else if (selectionada.getPosicionX() != x && selectionada.getPosicionY() != y) {
+					}else if (selectionada.getPosicionX() != x && selectionada.getPosicionY() != y) {
 						if (x < selectionada.getPosicionX()) {
 							if (y > selectionada.getPosicionY()) {
 								if ((selectionada.getPosicionX() - x) == (y - selectionada.getPosicionY())) {
@@ -289,8 +302,8 @@ public class Alfil extends Piezas {
 								}
 							}
 						}
-					}
-				}
+					}return check;
+				}else return check;
 			} else
 				return check;
 		}

@@ -18,6 +18,7 @@ public class InterfaceComand {
 		boolean statusReyNegro = table.busquedaRey(1);
 
 		while (statusReyBlanco == true && statusReyNegro == true) {
+			// table.Contador();
 			System.out.println("Turno de las blancas.");
 
 			Piezas elegida = null;
@@ -28,18 +29,7 @@ public class InterfaceComand {
 				boolean checkSelecBlanca = false;
 				while (checkSelecBlanca == false) {
 					System.out.println("Dime que pieza quieres mover.");
-					int pf=-2;
-					boolean checkFormatFile=true;
-					do {
-						try {
-							checkFormatFile = true;
-							System.out.print("Fila de la pieza: ");
-							pf = teclado.nextInt();
 
-						} catch (InputMismatchException e) {
-							teclado.next();
-						}
-					} while (!checkFormatFile);
 					System.out.print("Columna de la pieza: ");
 					String pcString = teclado.next();
 					int pc = -1;
@@ -71,6 +61,18 @@ public class InterfaceComand {
 						pc = 7;
 						break;
 					}
+					int pf = -2;
+					boolean checkFormatFile = true;
+					do {
+						try {
+							checkFormatFile = true;
+							System.out.print("Fila de la pieza: ");
+							pf = teclado.nextInt();
+
+						} catch (InputMismatchException e) {
+							teclado.next();
+						}
+					} while (!checkFormatFile);
 
 					elegida = table.SelectPieza(pf, pc);
 
@@ -82,7 +84,7 @@ public class InterfaceComand {
 					} else {
 						checkSelecBlanca = true;
 					}
-					
+
 				}
 
 				boolean checkMoveBlanca = false;
@@ -93,60 +95,59 @@ public class InterfaceComand {
 
 					System.out.println("Dime a donde quieres moverla, (escribe 11 para cancelar este movimiento)");
 
-					int mf = -2;
-					boolean checkFormatFile = true;
-					do {
-						try {
-							checkFormatFile = true;
-							System.out.print("Fila a mover: ");
-							mf = teclado.nextInt();
+					System.out.print("Columna a mover: ");
+					String mcString = teclado.next();
+					mcString = mcString.toLowerCase();
 
-						} catch (InputMismatchException e) {
-							teclado.next();
-						}
-					} while (!checkFormatFile);
+					switch (mcString) {
+					case "a":
+						mc = 0;
+						break;
+					case "b":
+						mc = 1;
+						break;
+					case "c":
+						mc = 2;
+						break;
+					case "d":
+						mc = 3;
+						break;
+					case "e":
+						mc = 4;
+						break;
+					case "f":
+						mc = 5;
+						break;
+					case "g":
+						mc = 6;
+						break;
+					case "h":
+						mc = 7;
+						break;
+					case "11":
+						mc = 11;
+						break;
+					}
 
-					if (mf == 11)
+					if (mc == 11)
 						volver = true;
 
-					if (mf != 11) {
-						System.out.print("Columna a mover: ");
-						String mcString = teclado.next();
-						mcString = mcString.toLowerCase();
+					int mf = -2;
+					if (mc != 11) {
+						boolean checkFormatFile = true;
+						do {
+							try {
+								checkFormatFile = true;
+								System.out.print("Fila a mover: ");
+								mf = teclado.nextInt();
 
-						switch (mcString) {
-						case "a":
-							mc = 0;
-							break;
-						case "b":
-							mc = 1;
-							break;
-						case "c":
-							mc = 2;
-							break;
-						case "d":
-							mc = 3;
-							break;
-						case "e":
-							mc = 4;
-							break;
-						case "f":
-							mc = 5;
-							break;
-						case "g":
-							mc = 6;
-							break;
-						case "h":
-							mc = 7;
-							break;
-						case "11":
-							mc=11;
-							break;
-						}
-
-						if (mc == 11)
-							volver = true;
+							} catch (InputMismatchException e) {
+								teclado.next();
+							}
+						} while (!checkFormatFile);
 					}
+					if (mf == 11)
+						volver = true;
 
 					checkPosibleBlanca = elegida.move(elegida, mf, mc, table.checkStatus(),
 							table.casillasVacias(tablero));
@@ -162,17 +163,40 @@ public class InterfaceComand {
 
 				if (checkSelecBlanca == true && checkMoveBlanca == true & volver == false)
 					volverBlancaSelect = true;
-
 			}
 
 			System.out.println(mostrarTablero);
+
 			statusReyNegro = table.busquedaRey(1);
-			if (statusReyNegro == false)
+			if (statusReyNegro == false) {
 				break;
+			} else if (table.Jaque("N", tablero) == true) {
+				int respuesta2 = -1;
 
-			else
-				table.Jaque("N", tablero);
+				System.out.println();
+				System.out.println("Atento!!!! el rey negro  esta en jaque !!!!");
+				System.out.printf(
+						"-Jugador negro, escribe 0 para asumir la derrota por Jaque Mate \n o cualquier otra cosa para continuar para continuar la partida:");
+				boolean checkvueltaFile = true;
+				do {
+					try {
+						checkvueltaFile = true;
+						Scanner teclado2 = new Scanner(System.in);
+						respuesta2 = teclado2.nextInt();
 
+					} catch (InputMismatchException e) {
+					}
+
+				} while (!checkvueltaFile);
+				if (respuesta2 == 0) {
+					System.out.println("El jugador blanco ha ganado!");
+					statusReyNegro = false;
+					break;
+				} else
+					System.out.println("La partida continua...");
+			}
+
+			// table.Contador();
 			System.out.println("Turno de las negras.");
 
 			elegida = null;
@@ -184,20 +208,7 @@ public class InterfaceComand {
 				boolean checkSelecNegra = false;
 				while (checkSelecNegra == false) {
 					System.out.println("Dime que pieza quieres mover.");
-					int pf=-2;
-					boolean checkFormatFile=true;
-					do {
-						try {
-							checkFormatFile = true;
-							System.out.print("Fila de la pieza: ");
-							pf = teclado.nextInt();
 
-						} catch (InputMismatchException e) {
-							teclado.next();
-						}
-					} while (!checkFormatFile);
-
-					
 					System.out.print("Columna de la pieza: ");
 					String pcString = teclado.next();
 					int pc = -1;
@@ -229,6 +240,19 @@ public class InterfaceComand {
 						pc = 7;
 						break;
 					}
+
+					int pf = -2;
+					boolean checkFormatFile = true;
+					do {
+						try {
+							checkFormatFile = true;
+							System.out.print("Fila de la pieza: ");
+							pf = teclado.nextInt();
+
+						} catch (InputMismatchException e) {
+							teclado.next();
+						}
+					} while (!checkFormatFile);
 
 					elegida = table.SelectPieza(pf, pc);
 
@@ -250,58 +274,60 @@ public class InterfaceComand {
 					int mc = 99;
 
 					System.out.println("Dime a donde quieres moverla, (escribe 11 para cancelar este movimiento)");
-					int mf = -2;
-					boolean checkFormatFile = true;
-					do {
-						try {
-							checkFormatFile = true;
-							System.out.print("Fila a mover: ");
-							mf = teclado.nextInt();
 
-						} catch (InputMismatchException e) {
-							teclado.next();
-						}
-					} while (!checkFormatFile);
-					if (mf == 11)
+					System.out.print("Columna a mover: ");
+					String mcString = teclado.next();
+					mcString = mcString.toLowerCase();
+
+					switch (mcString) {
+					case "a":
+						mc = 0;
+						break;
+					case "b":
+						mc = 1;
+						break;
+					case "c":
+						mc = 2;
+						break;
+					case "d":
+						mc = 3;
+						break;
+					case "e":
+						mc = 4;
+						break;
+					case "f":
+						mc = 5;
+						break;
+					case "g":
+						mc = 6;
+						break;
+					case "h":
+						mc = 7;
+						break;
+					case "11":
+						mc = 11;
+						break;
+					}
+					if (mc == 11)
 						volver = true;
 
-					if (mf != 11) {
-						System.out.print("Columna a mover: ");
-						String mcString = teclado.next();
-						mcString = mcString.toLowerCase();
+					int mf = -2;
+					if (mc != 11) {
 
-						switch (mcString) {
-						case "a":
-							mc = 0;
-							break;
-						case "b":
-							mc = 1;
-							break;
-						case "c":
-							mc = 2;
-							break;
-						case "d":
-							mc = 3;
-							break;
-						case "e":
-							mc = 4;
-							break;
-						case "f":
-							mc = 5;
-							break;
-						case "g":
-							mc = 6;
-							break;
-						case "h":
-							mc = 7;
-							break;
-						case "11":
-							mc=11;
-							break;
-						}
-						if (mc == 11)
-							volver = true;
+						boolean checkFormatFile = true;
+						do {
+							try {
+								checkFormatFile = true;
+								System.out.print("Fila a mover: ");
+								mf = teclado.nextInt();
+
+							} catch (InputMismatchException e) {
+								teclado.next();
+							}
+						} while (!checkFormatFile);
 					}
+					if (mf == 11)
+						volver = true;
 
 					checkPosibleNegra = elegida.move(elegida, mf, mc, table.checkStatus(),
 							table.casillasVacias(tablero));
@@ -313,16 +339,43 @@ public class InterfaceComand {
 						mostrarTablero = table.numberToTable(tablero);
 					} else if (volver == true)
 						checkMoveNegra = true;
-				}if (checkSelecNegra == true && checkMoveNegra == true & volver == false)
+				}
+				if (checkSelecNegra == true && checkMoveNegra == true & volver == false)
 					volverNegraSelect = true;
 
 			}
 			System.out.println(mostrarTablero);
 
-			table.Jaque("B", tablero);
-
 			statusReyBlanco = table.busquedaRey(0);
-			
+			if (statusReyBlanco == false)
+				break;
+
+			else if (table.Jaque("B", tablero) == true) {
+				;
+				int respuesta = -1;
+				
+				System.out.println();
+				System.out.println("Atento!!!! el rey blanco  esta en jaque !!!!");
+				System.out.printf(
+						"-Jugador blanco, escribe 0 para asumir la derrota por Jaque Mate \n o cualquier otra cosa para continuar para continuar la partida:");
+				boolean checkvueltaFile = true;
+				do {
+					try {
+						checkvueltaFile = true;
+						Scanner teclado3 = new Scanner(System.in);
+						respuesta = teclado3.nextInt();
+
+					} catch (InputMismatchException e) {
+					}
+
+				} while (!checkvueltaFile);
+
+				if (respuesta == 0) {
+					System.out.println("El jugador negro ha ganado!");
+					statusReyBlanco = false;
+				} else
+					System.out.println("La partida continua...");
+			}
 
 			// table.muestreo();
 		}

@@ -7,6 +7,7 @@ public class Rey extends Piezas {
 		super(pieza, color);
 	}
 
+
 	public static boolean obstaculos(Piezas selecionada, int x, int y, boolean[][] vacias) {
 		ArrayList<Boolean> checks = new ArrayList<Boolean>();
 		boolean check = true;
@@ -213,8 +214,9 @@ public class Rey extends Piezas {
 				if (selectionada.getPosicionX() - x <= 1 && selectionada.getPosicionY() - y <= 1
 						&& x - selectionada.getPosicionX() <= 1 && y - selectionada.getPosicionY() <= 1)
 
-					if (isNotFriend(selectionada, x, y, piezas) == true && ataque == true)
-						check = true;
+					if (isNotFriend(selectionada, x, y, piezas) == true && ataque == true) {
+						check = true;}
+				
 					else if (isNotFriend(selectionada, x, y, piezas) == true && ataque == false) {
 						if (obstaculos(selectionada, x, y, vacias) == false) {
 							if (selectionada.getPosicionX() == x || selectionada.getPosicionY() == y) {
@@ -225,20 +227,25 @@ public class Rey extends Piezas {
 								if (x < selectionada.getPosicionX()) {
 									if (y > selectionada.getPosicionY()) {
 										if ((selectionada.getPosicionX() - x) == (y - selectionada.getPosicionY())) {
+											setContrey(1);
 											return check = true;
 										}
 									} else if (y < selectionada.getPosicionY()) {
 										if ((selectionada.getPosicionX() - x) == (selectionada.getPosicionY() - y)) {
+											setContrey(1);
 											return check = true;
 										}
 									}
 								} else if (x > selectionada.getPosicionX()) {
 									if (y > selectionada.getPosicionY()) {
 										if ((x - selectionada.getPosicionX()) == (y - selectionada.getPosicionY())) {
+											setContrey(1);
 											return check = true;
+											
 										}
 									} else if (y < selectionada.getPosicionY()) {
 										if ((x - selectionada.getPosicionX()) == (selectionada.getPosicionY() - y)) {
+											setContrey(1);
 											return check = true;
 										}
 									}

@@ -136,9 +136,11 @@ public class Torre extends Piezas {
 					if(this.getPosicionX()==x || this.getPosicionY()==y) check = true;
 					else return check;
 				}
-			}else return check;
+			}
+			
+			else return check;
 		}
 		else return check;
-		return check;		
+		return check;
 	}
 }

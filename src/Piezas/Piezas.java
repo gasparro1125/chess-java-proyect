@@ -65,7 +65,27 @@ public  abstract class  Piezas {
 		this.posicionX = posicionX;
 	}
 
+	private int contrey=0; 
+		
+	
+	public int getContrey() {
+		return contrey;
+	}
 
+	public void setContrey(int contrey) {
+		this.contrey = contrey;
+	}
+	
+	private int contTorre=0; 
+		
+	
+	public int getcontTorre() {
+		return contTorre;
+	}
+
+	public void setcontTorre(int conttorre) {
+		this.contTorre = conttorre;
+	}
 
 	@Override
 	public String toString() {

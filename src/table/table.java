@@ -3,6 +3,7 @@ package table;
 import java.io.ObjectInputFilter.Status;
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 
 import Piezas.MountPiezas;
@@ -277,7 +278,7 @@ public class table {
 				piezas.get(0).get(0).remove(i);
 				System.out.println("podemos evolucionar el peon blanco a:");
 				Scanner teclado = new Scanner(System.in);
-				System.out.printf("1 - Torre\n 2- Caballo \n 3-Alfil \n 4-Reina\n");
+				System.out.printf(" 1- Torre\n 2- Caballo \n 3-Alfil \n 4-Reina\n");
 				int respuesta = 0;
 
 				while (respuesta != 1 && respuesta != 2 && respuesta != 3 && respuesta != 4) {
@@ -333,7 +334,7 @@ public class table {
 				piezas.get(1).get(0).remove(i);
 				System.out.println("podemos evolucionar el peon negro a:");
 				Scanner teclado = new Scanner(System.in);
-				System.out.printf("1 - Torre\n 2- Caballo \n 3-Alfil \n 4-Reina\n");
+				System.out.printf(" 1- Torre\n 2- Caballo \n 3-Alfil \n 4-Reina\n");
 				int respuesta = 0;
 
 				while (respuesta != 1 && respuesta != 2 && respuesta != 3 && respuesta != 4) {
@@ -382,7 +383,7 @@ public class table {
 		}
 	}
 
-	// Funcion Jaque, introducimos el color del rey que queremos comprobar si estra
+	// Funcion Jaque, introducimos el color del rey que queremos comprobar si esta
 	// en jaque
 	public static boolean Jaque(String color, String[][] tablero) {
 		boolean jaqueBlanca = false;
@@ -448,34 +449,68 @@ public class table {
 		 */
 
 		if (jaqueBlanca == true) {
+			/*int respuesta=-1;
 			System.out.println("Atento!!!! el rey blanco  esta en jaque !!!!");
-			System.out.println("Jugador blanco, escribe 0 para asumir la derrota por Jaque Mate o 1 para continuar la partida:");
-			Scanner teclado = new Scanner(System.in);
-			int respuesta = teclado.nextInt();
-			if (respuesta == 1) System.out.println("La partida continua...");
-			else if (respuesta == 0) {
+			System.out.println();
+			System.out.printf("-Jugador blanco, escribe 0 para asumir la derrota por Jaque Mate \n o cualquier otra cosa para continuar para continuar la partida:");
+			boolean checkvueltaFile = true;
+			do {
+				try {
+					checkvueltaFile = true;
+					Scanner teclado = new Scanner(System.in);
+					respuesta = teclado.nextInt();
+
+				} catch (InputMismatchException e) {
+				}
+				
+			} while (!checkvueltaFile);
+			
+			if (respuesta == 0) {
 				System.out.println("El jugador negro ha ganado!");
 				piezas.get(0).get(5).remove(0);
 			}
+			else System.out.println("La partida continua...");*/
 		}
 
 		else if (jaqueNegra == true) {
-			//Boolean jaquemate=false;
+			/*int respuesta2=-1;
+		
 			System.out.println("Atento!!!! el rey negro  esta en jaque !!!!");
-			System.out.println("Jugador negro, escribe 0 para asumir la derrota por Jaque Mate o 1 para continuar la partida:");
-			Scanner teclado = new Scanner(System.in);
-			int respuesta2 = teclado.nextInt();
-			if (respuesta2 == 1) System.out.println("La partida continua...");
-			else if (respuesta2 == 0) {
+			System.out.println();
+			System.out.printf("-Jugador negro, escribe 0 para asumir la derrota por Jaque Mate \n o cualquier otra cosa para continuar para continuar la partida:");
+			boolean checkvueltaFile = true;
+			do {
+				try {
+					checkvueltaFile = true;
+					Scanner teclado = new Scanner(System.in);
+					respuesta2 = teclado.nextInt();
+
+				} catch (InputMismatchException e) {
+				}
+				
+			} while (!checkvueltaFile);
+			if (respuesta2 == 0) {
 				System.out.println("El jugador blanco ha ganado!");
 				piezas.get(1).get(5).remove(0);
-				//return jaquemate=true;
 			}
-		}
+			else System.out.println("La partida continua...");*/
+			}
 
 		return check;
-
 	}
+	
+	/*public static void Contador() {
+		System.out.println(piezas.get(0).get(5).get(0).getContrey());
+		System.out.println(piezas.get(1).get(5).get(0).getContrey());
+		System.out.println(piezas.get(0).get(1).get(0).getcontTorre());
+		System.out.println(piezas.get(0).get(1).get(1).getcontTorre());
+		System.out.println(piezas.get(1).get(1).get(0).getcontTorre());
+		System.out.println(piezas.get(1).get(1).get(1).getcontTorre());
+	} */
+	
+	
+	
+	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*
