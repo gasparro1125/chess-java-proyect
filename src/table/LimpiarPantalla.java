@@ -3,8 +3,15 @@ package table;
 import java.io.IOException;
 
 public class LimpiarPantalla {
+		public static void limpiar() throws InterruptedException, IOException{
+	        try {
 
-	public static void limpiar() throws InterruptedException, IOException{
-		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+	            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
+	        } catch (Exception e) {
+
+	            /*No hacer nada*/
+
+	        }
 	}
 }

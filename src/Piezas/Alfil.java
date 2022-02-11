@@ -12,62 +12,6 @@ public class Alfil extends Piezas {
 		ArrayList<Boolean> checks = new ArrayList<Boolean>();
 		boolean check = true;
 		int obsta = 0;
-	
-		/*
-		if (x < selecionada.getPosicionX()) {
-			if (y > selecionada.getPosicionY()) {
-				for (int i = x; i < selecionada.getPosicionX(); i++) {
-					for (int j = y; j > selecionada.getPosicionY(); j--) {
-						if ((selecionada.getPosicionX() - i) == (j - selecionada.getPosicionY())) {
-							if (vacias[i][j] == true)
-								checks.add(false);
-							else {
-								checks.add(true);
-							}
-						}else checks.add(false);
-					}
-				}
-			} else if (y < selecionada.getPosicionY()) {
-				for (int i = x; i < selecionada.getPosicionX(); i++) {
-					for (int j = y; j < selecionada.getPosicionY(); j++) {
-						if ((selecionada.getPosicionX() - i) == (selecionada.getPosicionY() - j)) {
-							if (vacias[i][j] == true)
-								checks.add(false);
-							else {
-								checks.add(true);
-							}
-						}else checks.add(false);
-					}
-				}
-			}
-		} else if (x > selecionada.getPosicionX()) {
-			if (y > selecionada.getPosicionY()) {
-				for (int i = x; i > selecionada.getPosicionX(); i--) {
-					for (int j = y; j > selecionada.getPosicionY(); j--) {
-						if ((i - selecionada.getPosicionX()) == (j - selecionada.getPosicionY())) {
-							if (vacias[i][j] == true)
-								checks.add(false);
-							else {
-								checks.add(true);
-							}
-						}
-					}
-				}
-			} else if (y < selecionada.getPosicionY()) {
-				for (int i = x; i > selecionada.getPosicionX(); i--) {
-					for (int j = y; j < selecionada.getPosicionY(); j++) {
-						if ((i - selecionada.getPosicionX()) == (selecionada.getPosicionY() - j)) {
-							if (vacias[i][j] == true)
-								checks.add(false);
-							else {
-								checks.add(true);
-							}
-						}else checks.add(false);
-					}
-				}
-			}
-		}*/
-		
 
 		if (selecionada.getPosicionX() == x || selecionada.getPosicionY() == y) {
 			if (selecionada.getPosicionX() != x) {
