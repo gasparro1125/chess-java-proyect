@@ -2,6 +2,9 @@ package InterfazCMD;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import javax.naming.ldap.HasControls;
+
 import Piezas.Piezas;
 import table.table;
 
@@ -16,10 +19,13 @@ public class InterfaceComand {
 
 		boolean statusReyBlanco = table.busquedaRey(0);
 		boolean statusReyNegro = table.busquedaRey(1);
+		boolean surrender = false;
+		boolean surrender2 = false;
 
 		while (statusReyBlanco == true && statusReyNegro == true) {
 			// table.Contador();
-			System.out.println("Turno de las blancas.");
+			
+			System.out.println("Turno de las blancas. (Escribe (surrender) para rendirte en la columna)");
 
 			Piezas elegida = null;
 			boolean volverBlancaSelect = false;
@@ -60,7 +66,12 @@ public class InterfaceComand {
 					case "h":
 						pc = 7;
 						break;
+					case "surrender":
+						surrender=true;
+						;
 					}
+					if (surrender==true) break;
+					
 					int pf = -2;
 					boolean checkFormatFile = true;
 					do {
@@ -77,7 +88,7 @@ public class InterfaceComand {
 					elegida = table.SelectPieza(pf, pc);
 
 					if (elegida == null) {
-						System.out.println("Has elegido una casilla vacía");
+						System.out.println("Has elegido una casilla vacÃ­a");
 
 					} else if (elegida.getColor() == "N") {
 						System.out.println("Has elegido una pieza enemiga");
@@ -86,7 +97,7 @@ public class InterfaceComand {
 					}
 
 				}
-
+				if (surrender==true) break;
 				boolean checkMoveBlanca = false;
 				boolean volver = false;
 				while (checkMoveBlanca == false) {
@@ -164,7 +175,7 @@ public class InterfaceComand {
 				if (checkSelecBlanca == true && checkMoveBlanca == true & volver == false)
 					volverBlancaSelect = true;
 			}
-
+			if (surrender==true) break;
 			System.out.println(mostrarTablero);
 
 			statusReyNegro = table.busquedaRey(1);
@@ -197,7 +208,7 @@ public class InterfaceComand {
 			}
 
 			// table.Contador();
-			System.out.println("Turno de las negras.");
+			System.out.println("Turno de las negras. (Escribe (surrender) para rendirte en la columna)");
 
 			elegida = null;
 
@@ -239,8 +250,10 @@ public class InterfaceComand {
 					case "h":
 						pc = 7;
 						break;
+					case "surrender":
+						surrender2=true;
 					}
-
+					if (surrender2==true) break;
 					int pf = -2;
 					boolean checkFormatFile = true;
 					do {
@@ -257,7 +270,7 @@ public class InterfaceComand {
 					elegida = table.SelectPieza(pf, pc);
 
 					if (elegida == null) {
-						System.out.println("Has elegido una casilla vacía");
+						System.out.println("Has elegido una casilla vacÃ­a");
 
 					} else if (elegida.getColor() == "B") {
 						System.out.println("Has elegido una pieza enemiga");
@@ -266,7 +279,7 @@ public class InterfaceComand {
 					}
 
 				}
-
+				if (surrender2==true) break;
 				boolean checkMoveNegra = false;
 				boolean volver = false;
 				while (checkMoveNegra == false) {
@@ -344,6 +357,7 @@ public class InterfaceComand {
 					volverNegraSelect = true;
 
 			}
+			if (surrender2==true) break;
 			System.out.println(mostrarTablero);
 
 			statusReyBlanco = table.busquedaRey(0);
@@ -379,6 +393,8 @@ public class InterfaceComand {
 
 			// table.muestreo();
 		}
+		if (surrender==true) System.out.println("Ha ganado jugador negro");
+		if (surrender2==true) System.out.println("Ha ganado jugador blanco");
 		System.out.println("Fin de la partida");
 
 		// boolean[][] prueba = table.casillasVacias(tablero);

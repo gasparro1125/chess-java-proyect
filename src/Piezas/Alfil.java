@@ -12,7 +12,7 @@ public class Alfil extends Piezas {
 		ArrayList<Boolean> checks = new ArrayList<Boolean>();
 		boolean check = true;
 		int obsta = 0;
-		
+	
 		/*
 		if (x < selecionada.getPosicionX()) {
 			if (y > selecionada.getPosicionY()) {
